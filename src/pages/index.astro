@@ -1,147 +1,187 @@
 ---
-// Import the necessary components
 import MainLayout from '@/layouts/MainLayout.astro';
 import HeroSection from '@components/sections/landing/HeroSection.astro';
-import HeroSectionAlt from '@components/sections/landing/HeroSectionAlt.astro';
-import ClientsSection from '@components/sections/landing/ClientsSection.astro';
 import FeaturesGeneral from '@components/sections/features/FeaturesGeneral.astro';
 import FeaturesNavs from '@components/sections/features/FeaturesNavs.astro';
-import TestimonialsSection from '@components/sections/testimonials/TestimonialsSection.astro';
-import PricingSection from '@components/sections/pricing/PricingSection.astro';
 import FAQ from '@components/sections/misc/FAQ.astro';
-import AnnouncementBanner from '@components/ui/banners/AnnouncementBanner.astro';
 import heroImage from '@images/hero-image.avif';
-import faqs from '@data/faqs.json';
-import features from '@data/features.json';
-import pricing from '@data/pricing.json';
 import featureImage from '@images/features-image.avif';
 import construction from '@images/construction-image.avif';
 import tools from '@images/automated-tools.avif';
 import dashboard from '@images/dashboard-image.avif';
-import { partnersData } from '@/data_files/constants';
 
-const avatarSrcs: Array<string> = [
-  'https://images.unsplash.com/photo-1568602471122-7832951cc4c5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=2&w=300&h=300&q=80',
-  'https://images.unsplash.com/photo-1531927557220-a9e23c1e4794?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=2&w=300&h=300&q=80',
-  'https://images.unsplash.com/photo-1541101767792-f9b2b1c4f127?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&&auto=format&fit=facearea&facepad=3&w=300&h=300&q=80',
-  'https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=2&w=300&h=300&q=80',
+const localBusinessSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'LandscapingService',
+  name: 'Hawthorn Scapes, LLC',
+  image:
+    'https://hawthornscapes.com/Gemini_Generated_Image_3zlccl3zlccl3zlc.png',
+  url: 'https://hawthornscapes.com',
+  telephone: 'YOUR_PHONE_NUMBER',
+  priceRange: '$$',
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: 'YOUR_BUSINESS_ADDRESS',
+    addressLocality: 'Littleton',
+    addressRegion: 'CO',
+    postalCode: '80120',
+    addressCountry: 'US',
+  },
+  geo: {
+    '@type': 'GeoCoordinates',
+    latitude: 39.5807,
+    longitude: -104.9772,
+  },
+  areaServed: [
+    { '@type': 'City', name: 'Denver' },
+    { '@type': 'City', name: 'Littleton' },
+    { '@type': 'City', name: 'Centennial' },
+    { '@type': 'City', name: 'Highlands Ranch' },
+    { '@type': 'City', name: 'Castle Rock' },
+    { '@type': 'City', name: 'Colorado Springs' },
+  ],
+  hasOfferCatalog: {
+    '@type': 'OfferCatalog',
+    name: 'Landscaping Services',
+    itemListElement: [
+      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Xeriscaping' } },
+      {
+        '@type': 'Offer',
+        itemOffered: { '@type': 'Service', name: 'Hardscape & Retaining Walls' },
+      },
+      {
+        '@type': 'Offer',
+        itemOffered: { '@type': 'Service', name: 'Tree & Shrub Installation' },
+      },
+      {
+        '@type': 'Offer',
+        itemOffered: { '@type': 'Service', name: 'Lawn Mowing & Maintenance' },
+      },
+    ],
+  },
+};
+
+const keyServiceFeatures = [
+  {
+    heading: 'Colorado-Hardy Planting',
+    content:
+      'Tree and shrub installation planned for altitude, sun exposure, and soil conditions along the Front Range.',
+    svg: 'hammer',
+  },
+  {
+    heading: 'Water-Efficient Xeriscaping',
+    content:
+      'Low-maintenance, modern yards that preserve curb appeal while reducing water usage during dry Colorado summers.',
+    svg: 'earth',
+  },
+  {
+    heading: 'Engineered Hardscapes',
+    content:
+      'Retaining walls and stonework designed for drainage, slope control, and long-term durability.',
+    svg: 'verified',
+  },
+  {
+    heading: 'Reliable Ongoing Care',
+    content:
+      'Scheduled mowing, edging, and seasonal cleanups that keep your landscape neat year-round.',
+    svg: 'community',
+  },
+];
+
+const faqs = [
+  {
+    question: 'What areas do you serve?',
+    answer:
+      'We serve Metro Denver through Colorado Springs, including Littleton, Centennial, Highlands Ranch, and Castle Rock.',
+  },
+  {
+    question: 'Do you offer xeriscaping?',
+    answer:
+      'Yes. We design and install water-efficient xeriscape solutions that fit your property style and maintenance goals.',
+  },
+  {
+    question: 'Can you handle both design and install?',
+    answer:
+      'Yes. We provide end-to-end projects from planning and material selection to construction and finishing.',
+  },
+  {
+    question: 'How do I request an estimate?',
+    answer:
+      'Use our contact form to share your project details and we will follow up with next steps and scheduling options.',
+  },
 ];
 ---
 
-<MainLayout>
-  <AnnouncementBanner
-    btnId="dismiss-button"
-    btnTitle="Explore ScrewFast on GitHub"
-    url="https://github.com/mearashadowfax/ScrewFast"
-  />
-
+<MainLayout
+  title="Hawthorn Scapes | Colorado Landscaping"
+  customDescription="Professional landscaping, xeriscaping, hardscaping, and maintenance services across Metro Denver to Colorado Springs."
+  structuredData={localBusinessSchema}
+>
   <HeroSection
-    title=`Equip Your Projects with <span
-        class="text-yellow-500 dark:text-yellow-400">ScrewFast</span>`
-    subTitle="Top-quality hardware tools and expert construction services for every project need."
-    primaryBtn="Start Exploring"
-    primaryBtnURL="/products"
-    secondaryBtn="Contact Sales Team"
+    title=`Colorado Landscaping Done <span class="text-brand-600 dark:text-brand-400">Right</span>`
+    subTitle="Hawthorn Scapes provides professional maintenance, custom landscape installation, and hardscape solutions built for the Front Range climate."
+    primaryBtn="Request a Free Estimate"
+    primaryBtnURL="/contact"
+    secondaryBtn="View Services"
     secondaryBtnURL="/contact"
-    withReview={true}
-    avatars={avatarSrcs}
-    rating=`<span class="font-bold">4.8</span> / 5`
-    starCount={4}
-    reviews=`From Over <span class="font-bold">12.8k</span> Reviews`
+    withReview={false}
     src={heroImage}
-    alt="Stack of ScrewFast product boxes containing assorted hardware tools"
-  />
-
-  <ClientsSection
-    title="Trusted by Industry Leaders"
-    subTitle="Experience the reliability chosen by industry giants."
-    partners={partnersData}
+    alt="Landscape installation and maintenance project"
   />
 
   <FeaturesGeneral
-    title="Meeting Industry Demands"
-    subTitle="At ScrewFast, we tackle the unique challenges encountered in the hardware and construction sectors. From cutting-edge tools to expert services, we're dedicated to helping you overcome obstacles and achieve your goals."
+    title="Built for Front Range Conditions"
+    subTitle="From drought-friendly design to long-lasting hardscape builds, we focus on practical landscapes that look clean and perform season after season."
     src={featureImage}
-    alt="ScrewFast products in floating boxes"
-    features={features}
+    alt="Hardscape and landscape project details"
+    features={keyServiceFeatures}
   />
 
   <FeaturesNavs
-    title=`Customize <span class="text-yellow-500 dark:text-yellow-400">ScrewFast</span>'s offerings to perfectly suit your hardware and construction needs.`
+    title=`Services Built for <span class="text-brand-600 dark:text-brand-400">Colorado Homes</span>`
     tabs={[
       {
-        heading: 'Cutting-Edge Tools',
+        heading: 'Lawn & Maintenance',
         content:
-          "Empower your projects with ScrewFast's cutting-edge tools. Experience enhanced efficiency in construction management with our sophisticated automated solutions.",
+          'Scheduled mowing, edging, seasonal clean-ups, and trimming to keep your property sharp through every season.',
         svg: 'tools',
         src: tools,
-        alt: 'Yellow and black heavy equipment on brown grass field',
+        alt: 'Lawn maintenance service in Colorado',
         first: true,
       },
       {
-        heading: 'Intuitive Dashboards',
+        heading: 'Installation & Design',
         content:
-          "Navigate with ease using ScrewFast's intuitive dashboards. Set up and oversee your projects seamlessly, with user-friendly interfaces designed for quick and effective workflow management.",
+          'Tree and shrub installation, custom landscape design, and xeriscaping tailored to local climate and soil conditions.',
         svg: 'dashboard',
         src: dashboard,
-        alt: 'A screenshot or graphic representation of the intuitive dashboard',
+        alt: 'Custom landscape installation and xeriscape design',
         second: true,
       },
       {
-        heading: 'Robust Features',
+        heading: 'Hardscape & Structures',
         content:
-          "Minimize complexity, maximize productivity. ScrewFast's robust features are engineered to streamline your construction process, delivering results that stand out for their excellence.",
+          'Retaining walls, stone features, and fencing built for drainage performance, durability, and curb appeal.',
         svg: 'house',
         src: construction,
-        alt: 'Gray metal building frame near tower crane during daytime',
+        alt: 'Retaining wall and hardscape construction',
       },
     ]}
   />
 
-  <TestimonialsSection
-    title="Fast-Track Your Projects"
-    subTitle="At ScrewFast, we ensure a swift start with instant account setup. Experience the speed of construction redefined."
-    ;
-    testimonials={[
-      {
-        content:
-          'ScrewFast dramatically boosted our project efficiency. Setup was instant, and their rapid response times are phenomenal. Truly a game-changer in hardware and construction support!',
-        author: 'Samantha Ruiz',
-        role: 'Chief Operating Officer | ConstructIt Inc.',
-        avatarSrc:
-          'https://images.unsplash.com/photo-1593104547489-5cfb3839a3b5?q=80&w=1453&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D8&auto=format&fit=facearea&facepad=2&w=320&h=320&q=80',
-      },
-    ]}
-    statistics={[
-      {
-        count: '70k+',
-        description:
-          'customers equipped — from DIY to major construction firms',
-      },
-      {
-        count: '35%',
-        description:
-          'uptick in project efficiency with ScrewFast tools and services',
-      },
-      {
-        count: '15.3%',
-        description:
-          'reduction in maintenance costs reported by long-term clients',
-      },
-      {
-        count: '2x',
-        description: 'quicker assembly using innovative fastening solutions',
-      },
-    ]}
-  />
+  <section id="service-area" class="mx-auto max-w-[85rem] px-4 sm:px-6 lg:px-8">
+    <div class="rounded-xl bg-brand-50 px-6 py-8 dark:bg-white/[.04]">
+      <h2 class="text-2xl font-bold text-neutral-800 dark:text-neutral-200">
+        Service Area
+      </h2>
+      <p class="mt-3 text-neutral-600 dark:text-neutral-400">
+        Proudly serving Metro Denver through Colorado Springs, including
+        Littleton, Centennial, Highlands Ranch, and Castle Rock.
+      </p>
+    </div>
+  </section>
 
-  <PricingSection pricing={pricing} />
-
-  <FAQ title="Frequently<br />asked questions" faqs={faqs} />
-
-  <HeroSectionAlt
-    title="Let's Build Together"
-    subTitle="ScrewFast is an open-source template, meticulously crafted with Astro, Tailwind CSS, and Preline UI frameworks."
-    url="https://github.com/mearashadowfax/ScrewFast"
-  />
+  <section id="faq">
+    <FAQ title="Frequently<br />asked questions" faqs={faqs} />
+  </section>
 </MainLayout>

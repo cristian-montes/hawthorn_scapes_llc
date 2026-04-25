@@ -11,8 +11,8 @@ import Icon from '@components/ui/icons/Icon.astro';
 // Define the variables that will be used in this component
 const title: string = 'Contact us';
 const subTitle: string =
-  "Have questions or want to discuss a project? Reach out, and let's craft the perfect solution with our tools and services.";
-const formTitle: string = 'Fill in the form below';
+  "Tell us about your property goals and we will follow up with the right next step for your project.";
+const formTitle: string = 'Request an estimate';
 const formSubTitle: string = "We'll get back to you in 1-2 business days.";
 ---
 
@@ -41,7 +41,8 @@ const formSubTitle: string = "We'll get back to you in 1-2 business days.";
           /* Form for user input with various input fields.-->
         {/* Each field utilizes a different input component for the specific type of input (text, email, phone, and textarea)*/
         }
-        <form>
+        <form name="contact" method="POST" data-netlify="true">
+          <input type="hidden" name="form-name" value="contact" />
           <div class="grid gap-4">
             <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
               <TextInput
@@ -81,39 +82,39 @@ const formSubTitle: string = "We'll get back to you in 1-2 business days.";
       }
       <div class="divide-y divide-neutral-300 dark:divide-neutral-700">
         <ContactIconBlock
-          heading="Knowledgebase"
-          content="Browse through all of our knowledgebase articles."
+          heading="Service area"
+          content="Serving Metro Denver through Colorado Springs."
           isLinkVisible={true}
-          linkTitle="Visit guides & tutorials"
-          linkURL="#"
+          linkTitle="See service area"
+          linkURL="/#service-area"
           isArrowVisible={true}
           ><Icon name="question" />
         </ContactIconBlock>
 
         <ContactIconBlock
           heading="FAQ"
-          content="Explore our FAQ for quick, clear answers to common queries."
+          content="Get quick answers about services, timing, and estimates."
           isLinkVisible={true}
           linkTitle="Visit FAQ"
-          linkURL="#"
+          linkURL="/#faq"
           isArrowVisible={true}
           ><Icon name="chatBubble" />
         </ContactIconBlock>
 
         <ContactIconBlock
-          heading="Visit our office"
-          content="UK ScrewFast"
+          heading="Primary service hub"
+          content="Littleton, Colorado"
           isAddressVisible={true}
-          addressContent="72 Union Terrace, E10 4PE London"
+          addressContent="Metro Denver to Colorado Springs"
           ><Icon name="mapPin" />
         </ContactIconBlock>
 
         <ContactIconBlock
           heading="Contact us by email"
-          content="Prefer the written word? Drop us an email at"
+          content="Prefer email? Reach us at"
           isLinkVisible={true}
-          linkTitle="support@screwfast.uk"
-          linkURL="#"
+          linkTitle="hello@hawthornscapes.com"
+          linkURL="mailto:hello@hawthornscapes.com"
           ><Icon name="envelopeOpen" />
         </ContactIconBlock>
       </div>

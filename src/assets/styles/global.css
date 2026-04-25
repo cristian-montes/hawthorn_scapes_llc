@@ -101,6 +101,21 @@
   --color-zinc-800: oklch(0.274 0.006 286.033);
   --color-zinc-900: oklch(0.21 0.006 285.885);
   --color-zinc-950: oklch(0.141 0.005 285.823);
+
+  --color-brand-50: #eef5f1;
+  --color-brand-100: #dcece4;
+  --color-brand-200: #bdd9cb;
+  --color-brand-300: #9fc6b3;
+  --color-brand-400: #6fa68a;
+  --color-brand-500: #3e7a5f;
+  --color-brand-600: #1f5a48;
+  --color-brand-700: #174236;
+  --color-brand-800: #13372d;
+  --color-brand-900: #0f2c24;
+
+  --color-accent-500: #b5233a;
+  --color-sand-50: #f5f2ec;
+  --color-ink-900: #1f2937;
 }
 
 /*

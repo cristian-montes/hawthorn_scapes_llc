@@ -1,27 +1,27 @@
 const navBarLinks = [
   { name: 'Accueil', url: '/fr' },
-  { name: 'Produits', url: '/fr/products' },
   { name: 'Services', url: '/fr/services' },
-  { name: 'Blog', url: '/fr/blog' },
+  { name: 'Zone desservie', url: '/fr/#service-area' },
+  { name: 'FAQ', url: '/fr/#faq' },
   { name: 'Contact', url: '/fr/contact' },
 ];
 
 const footerLinks = [
   {
-    section: 'Écosystème',
+    section: 'Services',
     links: [
-      { name: 'Documentation', url: '/fr/welcome-to-docs/' },
-      { name: 'Outils et Équipements', url: '/fr/products' },
-      { name: 'Services de Construction', url: '/fr/services' },
+      { name: 'Entretien de pelouse', url: '/fr/services' },
+      { name: 'Installation et conception', url: '/fr/services' },
+      { name: 'Aménagements et structures', url: '/fr/services' },
     ],
   },
   {
     section: 'Société',
     links: [
-      { name: 'À propos de nous', url: '#' },
-      { name: 'Blog', url: '/fr/blog' },
-      { name: 'Carrières', url: '#' },
-      { name: 'Clients', url: '#' },
+      { name: 'À propos', url: '/fr' },
+      { name: 'Zone desservie', url: '/fr/#service-area' },
+      { name: 'FAQ', url: '/fr/#faq' },
+      { name: 'Contact', url: '/fr/contact' },
     ],
   },
 ];
@@ -29,7 +29,7 @@ const footerLinks = [
 const socialLinks = {
   facebook: '#',
   x: '#',
-  github: 'https://github.com/mearashadowfax/ScrewFast',
+  github: '#',
   google: '#',
   slack: '#',
 };

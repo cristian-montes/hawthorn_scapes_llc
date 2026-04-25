@@ -11,8 +11,8 @@ import Icon from '@components/ui/icons/Icon.astro';
 // Define the variables that will be used in this component
 const title: string = 'Contactez-nous';
 const subTitle: string =
-  "Vous avez des questions ou souhaitez discuter d'un projet ? Contactez-nous et laissons-nous élaborer la solution parfaite avec nos outils et services.";
-const formTitle: string = 'Remplissez le formulaire ci-dessous';
+  "Parlez-nous de votre projet et nous vous proposerons les prochaines étapes adaptées à votre propriété.";
+const formTitle: string = 'Demander une estimation';
 const formSubTitle: string =
   'Nous vous répondrons dans un délai de 1 à 2 jours ouvrables.';
 ---
@@ -42,7 +42,8 @@ const formSubTitle: string =
           /* Form for user input with various input fields.-->
         {/* Each field utilizes a different input component for the specific type of input (text, email, phone, and textarea)*/
         }
-        <form>
+        <form name="contact-fr" method="POST" data-netlify="true">
+          <input type="hidden" name="form-name" value="contact-fr" />
           <div class="grid gap-4">
             <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
               <TextInput
@@ -53,7 +54,7 @@ const formSubTitle: string =
               <TextInput
                 id="hs-lastname-contacts"
                 label="Nom"
-                name="hs-firstname-contacts"
+                name="hs-lastname-contacts"
               />
             </div>
             <EmailContactInput id="hs-email-contacts" />
@@ -82,11 +83,11 @@ const formSubTitle: string =
       }
       <div class="divide-y divide-neutral-300 dark:divide-neutral-700">
         <ContactIconBlock
-          heading="Base de connaissances"
-          content="Parcourez tous nos articles de base de connaissances."
+          heading="Zone desservie"
+          content="De Metro Denver à Colorado Springs."
           isLinkVisible={true}
-          linkTitle="Visiter les guides et tutoriels"
-          linkURL="#"
+          linkTitle="Voir la zone desservie"
+          linkURL="/fr/#service-area"
           isArrowVisible={true}
           ><Icon name="question" />
         </ContactIconBlock>
@@ -96,25 +97,25 @@ const formSubTitle: string =
           content="Explorez notre FAQ pour des réponses rapides et claires aux questions courantes."
           isLinkVisible={true}
           linkTitle="Visiter la FAQ"
-          linkURL="#"
+          linkURL="/fr/#faq"
           isArrowVisible={true}
           ><Icon name="chatBubble" />
         </ContactIconBlock>
 
         <ContactIconBlock
-          heading="Visitez notre bureau"
-          content="ScrewFast UK"
+          heading="Zone principale"
+          content="Littleton, Colorado"
           isAddressVisible={true}
-          addressContent="72 Union Terrace, E10 4PE London"
+          addressContent="Metro Denver à Colorado Springs"
           ><Icon name="mapPin" />
         </ContactIconBlock>
 
         <ContactIconBlock
-          heading="Contactez-nous par e-mail"
-          content="Préférez-vous le texte écrit ? Envoyez-nous un e-mail à"
+          heading="Contact par e-mail"
+          content="Préférez-vous un e-mail ? Écrivez-nous à"
           isLinkVisible={true}
-          linkTitle="support@screwfast.uk"
-          linkURL="#"
+          linkTitle="hello@hawthornscapes.com"
+          linkURL="mailto:hello@hawthornscapes.com"
           ><Icon name="envelopeOpen" />
         </ContactIconBlock>
       </div>

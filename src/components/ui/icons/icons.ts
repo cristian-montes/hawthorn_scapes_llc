@@ -50,7 +50,7 @@ export const Icons = {
       },
     ],
     class:
-      'mt-2 h-6 w-6 shrink-0 fill-neutral-700 hs-tab-active:fill-orange-400 dark:fill-neutral-300 dark:hs-tab-active:fill-orange-300 md:h-7 md:w-7',
+      'mt-2 h-6 w-6 shrink-0 fill-neutral-700 hs-tab-active:fill-brand-600 dark:fill-neutral-300 dark:hs-tab-active:fill-brand-400 md:h-7 md:w-7',
     width: 48,
     height: 48,
     viewBox: '0 -960 960 960',
@@ -62,7 +62,7 @@ export const Icons = {
       },
     ],
     class:
-      'mt-2 h-6 w-6 shrink-0 fill-neutral-700 hs-tab-active:fill-orange-400 dark:fill-neutral-300 dark:hs-tab-active:fill-orange-300 md:h-7 md:w-7',
+      'mt-2 h-6 w-6 shrink-0 fill-neutral-700 hs-tab-active:fill-brand-600 dark:fill-neutral-300 dark:hs-tab-active:fill-brand-400 md:h-7 md:w-7',
     width: 48,
     height: 48,
     viewBox: '0 -960 960 960',
@@ -74,7 +74,7 @@ export const Icons = {
       },
     ],
     class:
-      'h-6 w-6 shrink-0 text-neutral-700 hs-tab-active:text-orange-400 dark:text-neutral-300 dark:hs-tab-active:text-orange-300 md:h-7 md:w-7',
+      'h-6 w-6 shrink-0 text-neutral-700 hs-tab-active:text-brand-600 dark:text-neutral-300 dark:hs-tab-active:text-brand-400 md:h-7 md:w-7',
     width: 24,
     height: 24,
     viewBox: '0 0 24 24',
@@ -93,7 +93,7 @@ export const Icons = {
         d: 'M12 19V5',
       },
     ],
-    class: 'h-5 w-5 shrink-0 text-orange-400 dark:text-orange-300',
+    class: 'h-5 w-5 shrink-0 text-brand-500 dark:text-brand-400',
     width: 24,
     height: 24,
     viewBox: '0 0 24 24',

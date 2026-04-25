@@ -36,12 +36,20 @@ const author = SITE.author;
 const canonical = new URL(Astro.url.pathname, Astro.site || Astro.url.origin)
   .href;
 const basePath = Astro.url.pathname;
-const socialImageRes = await getImage({
-  src: OG.image,
-  width: 1200,
-  height: 600,
-});
-const socialImage = Astro.url.origin + socialImageRes.src; // Get the full URL of the image (https://stackoverflow.com/a/9858694)
+const socialImage =
+  typeof OG.image === 'string'
+    ? OG.image.startsWith('http')
+      ? OG.image
+      : `${Astro.url.origin}${OG.image}`
+    : `${Astro.url.origin}${
+        (
+          await getImage({
+            src: OG.image,
+            width: 1200,
+            height: 600,
+          })
+        ).src
+      }`;
 
 const languages: { [key: string]: string } = {
   en: '',
@@ -136,4 +144,4 @@ const appleTouchIcon = await getImage({
 <link href={appleTouchIcon.src} rel="apple-touch-icon" />
 <link href={appleTouchIcon.src} rel="shortcut icon" />
 {/* Set theme color */}
-<meta name="theme-color" content="#facc15" />
+<meta name="theme-color" content="#1f5a48" />

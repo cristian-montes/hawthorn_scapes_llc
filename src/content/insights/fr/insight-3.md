@@ -1,8 +1,8 @@
 ---
 title: "L'impact des pratiques durables"
 description: "Découvrez comment ScrewFast mène la charge en promouvant la durabilité dans l'industrie de la construction"
-cardImage: '@/images/insights/insight-3.avif'
-cardImageAlt: "Vue de dessus de l'agencement des outils mécaniques"
+cardImage: '@/images/features-image.avif'
+cardImageAlt: 'Detail de plantation sobre en eau avec pierre et graminees locales'
 ---
 
 L'industrie de la construction projette une longue ombre. Bien qu'elle fournisse l'infrastructure essentielle à nos vies, son impact environnemental est indéniable. De l'épuisement des ressources et la pollution à la consommation d'énergie et à la génération de déchets, les pratiques de construction traditionnelles pèsent lourdement sur notre planète. Mais une révolution est en marche, et à l'avant-garde se trouve ScrewFast, une entreprise qui change la donne de manière démonstrative avec son engagement envers des pratiques durables.

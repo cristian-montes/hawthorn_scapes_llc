@@ -2,112 +2,83 @@
 import MainLayout from '@/layouts/MainLayout.astro';
 import HeroSection from '@components/sections/landing/HeroSection.astro';
 import FeaturesGeneral from '@components/sections/features/FeaturesGeneral.astro';
-import FeaturesNavs from '@components/sections/features/FeaturesNavs.astro';
-import FAQ from '@components/sections/misc/FAQ.astro';
+import ContactSection from '@components/sections/misc/ContactSection.astro';
+import Icon from '@components/ui/icons/Icon.astro';
 import heroImage from '@images/hero-image.avif';
 import featureImage from '@images/features-image.avif';
-import construction from '@images/construction-image.avif';
-import tools from '@images/automated-tools.avif';
-import dashboard from '@images/dashboard-image.avif';
-
-const localBusinessSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'LandscapingService',
-  name: 'Hawthorn Scapes, LLC',
-  image:
-    'https://hawthornscapes.com/Gemini_Generated_Image_3zlccl3zlccl3zlc.png',
-  url: 'https://hawthornscapes.com',
-  telephone: 'YOUR_PHONE_NUMBER',
-  priceRange: '$$',
-  address: {
-    '@type': 'PostalAddress',
-    streetAddress: 'YOUR_BUSINESS_ADDRESS',
-    addressLocality: 'Littleton',
-    addressRegion: 'CO',
-    postalCode: '80120',
-    addressCountry: 'US',
-  },
-  geo: {
-    '@type': 'GeoCoordinates',
-    latitude: 39.5807,
-    longitude: -104.9772,
-  },
-  areaServed: [
-    { '@type': 'City', name: 'Denver' },
-    { '@type': 'City', name: 'Littleton' },
-    { '@type': 'City', name: 'Centennial' },
-    { '@type': 'City', name: 'Highlands Ranch' },
-    { '@type': 'City', name: 'Castle Rock' },
-    { '@type': 'City', name: 'Colorado Springs' },
-  ],
-  hasOfferCatalog: {
-    '@type': 'OfferCatalog',
-    name: 'Landscaping Services',
-    itemListElement: [
-      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Xeriscaping' } },
-      {
-        '@type': 'Offer',
-        itemOffered: { '@type': 'Service', name: 'Hardscape & Retaining Walls' },
-      },
-      {
-        '@type': 'Offer',
-        itemOffered: { '@type': 'Service', name: 'Tree & Shrub Installation' },
-      },
-      {
-        '@type': 'Offer',
-        itemOffered: { '@type': 'Service', name: 'Lawn Mowing & Maintenance' },
-      },
-    ],
-  },
-};
 
 const keyServiceFeatures = [
   {
-    heading: 'Colorado-Hardy Planting',
+    heading: 'Maintenance',
     content:
-      'Tree and shrub installation planned for altitude, sun exposure, and soil conditions along the Front Range.',
-    svg: 'hammer',
+      'Mowing, edging, seasonal clean-ups, and trimming that keep your landscape crisp year-round.',
+    svg: 'tools',
   },
   {
-    heading: 'Water-Efficient Xeriscaping',
+    heading: 'Installations',
     content:
-      'Low-maintenance, modern yards that preserve curb appeal while reducing water usage during dry Colorado summers.',
-    svg: 'earth',
-  },
-  {
-    heading: 'Engineered Hardscapes',
-    content:
-      'Retaining walls and stonework designed for drainage, slope control, and long-term durability.',
+      'Tree & shrub planting, xeriscaping, and custom landscape installation tailored for Colorado conditions.',
     svg: 'verified',
   },
   {
-    heading: 'Reliable Ongoing Care',
+    heading: 'Structures',
     content:
-      'Scheduled mowing, edging, and seasonal cleanups that keep your landscape neat year-round.',
-    svg: 'community',
+      'Fences, retaining walls, hardscapes, and stump removal for stronger, more usable outdoor spaces.',
+    svg: 'house',
   },
 ];
 
-const faqs = [
+const processSteps = [
   {
-    question: 'What areas do you serve?',
-    answer:
-      'We serve Metro Denver through Colorado Springs, including Littleton, Centennial, Highlands Ranch, and Castle Rock.',
+    title: 'Consult',
+    icon: 'books',
+    description:
+      'Start with a property walkthrough and practical Colorado-focused plan.',
   },
   {
-    question: 'Do you offer xeriscaping?',
-    answer:
-      'Yes. We design and install water-efficient xeriscape solutions that fit your property style and maintenance goals.',
+    title: 'Design',
+    icon: 'frame',
+    description:
+      'Build a durable landscape design that balances beauty, water efficiency, and low upkeep.',
   },
   {
-    question: 'Can you handle both design and install?',
-    answer:
-      'Yes. We provide end-to-end projects from planning and material selection to construction and finishing.',
+    title: 'Build',
+    icon: 'tools',
+    description:
+      'Install hardscape, planting, and irrigation with quality materials and proven techniques.',
   },
   {
-    question: 'How do I request an estimate?',
+    title: 'Maintain',
+    icon: 'verified',
+    description:
+      'Keep your property healthy and clean with ongoing care and seasonal service.',
+  },
+];
+
+const serviceAreas = [
+  'Littleton',
+  'Highlands Ranch',
+  'Castle Rock',
+  'Centennial',
+  'Denver',
+  'Colorado Springs',
+];
+
+const faqItems = [
+  {
+    question: 'How soon can I schedule a consultation?',
     answer:
-      'Use our contact form to share your project details and we will follow up with next steps and scheduling options.',
+      'We typically respond within 24 hours and can schedule a property walkthrough within one week, depending on availability.',
+  },
+  {
+    question: 'Do you offer drought-friendly landscape designs?',
+    answer:
+      'Yes — we specialize in xeriscaping, native planting, and hardscape solutions that reduce water use while enhancing outdoor appeal.',
+  },
+  {
+    question: 'Can you maintain existing landscapes on a recurring schedule?',
+    answer:
+      'Absolutely. We provide weekly, bi-weekly, and seasonal maintenance plans to keep your landscape healthy and tidy year-round.',
   },
 ];
 ---
@@ -115,73 +86,106 @@ const faqs = [
 <MainLayout
   title="Hawthorn Scapes | Colorado Landscaping"
   customDescription="Professional landscaping, xeriscaping, hardscaping, and maintenance services across Metro Denver to Colorado Springs."
-  structuredData={localBusinessSchema}
 >
   <HeroSection
-    title=`Colorado Landscaping Done <span class="text-brand-600 dark:text-brand-400">Right</span>`
-    subTitle="Hawthorn Scapes provides professional maintenance, custom landscape installation, and hardscape solutions built for the Front Range climate."
-    primaryBtn="Request a Free Estimate"
-    primaryBtnURL="/contact"
+    title="Hawthorn Scapes for the Front Range."
+    subTitle="Professional landscaping and xeriscaping tailored to the Colorado climate. Serving Littleton to Colorado Springs."
+    primaryBtn="Get a Quote"
+    primaryBtnURL="#contact"
     secondaryBtn="View Services"
-    secondaryBtnURL="/contact"
+    secondaryBtnURL="#services"
     withReview={false}
     src={heroImage}
-    alt="Landscape installation and maintenance project"
+    alt="Colorado landscape with stone, grasses, and mountain backdrop"
   />
 
-  <FeaturesGeneral
-    title="Built for Front Range Conditions"
-    subTitle="From drought-friendly design to long-lasting hardscape builds, we focus on practical landscapes that look clean and perform season after season."
-    src={featureImage}
-    alt="Hardscape and landscape project details"
-    features={keyServiceFeatures}
-  />
+  <div id="services">
+    <FeaturesGeneral
+      title="Services for Colorado Landscapes"
+      subTitle="Three core service groups: maintenance, installations, and outdoor structures designed for the Front Range climate."
+      src={featureImage}
+      alt="Stone and native planting detail"
+      features={keyServiceFeatures}
+    />
+  </div>
 
-  <FeaturesNavs
-    title=`Services Built for <span class="text-brand-600 dark:text-brand-400">Colorado Homes</span>`
-    tabs={[
-      {
-        heading: 'Lawn & Maintenance',
-        content:
-          'Scheduled mowing, edging, seasonal clean-ups, and trimming to keep your property sharp through every season.',
-        svg: 'tools',
-        src: tools,
-        alt: 'Lawn maintenance service in Colorado',
-        first: true,
-      },
-      {
-        heading: 'Installation & Design',
-        content:
-          'Tree and shrub installation, custom landscape design, and xeriscaping tailored to local climate and soil conditions.',
-        svg: 'dashboard',
-        src: dashboard,
-        alt: 'Custom landscape installation and xeriscape design',
-        second: true,
-      },
-      {
-        heading: 'Hardscape & Structures',
-        content:
-          'Retaining walls, stone features, and fencing built for drainage performance, durability, and curb appeal.',
-        svg: 'house',
-        src: construction,
-        alt: 'Retaining wall and hardscape construction',
-      },
-    ]}
-  />
-
-  <section id="service-area" class="mx-auto max-w-[85rem] px-4 sm:px-6 lg:px-8">
-    <div class="rounded-xl bg-brand-50 px-6 py-8 dark:bg-white/[.04]">
-      <h2 class="text-2xl font-bold text-neutral-800 dark:text-neutral-200">
-        Service Area
-      </h2>
-      <p class="mt-3 text-neutral-600 dark:text-neutral-400">
-        Proudly serving Metro Denver through Colorado Springs, including
-        Littleton, Centennial, Highlands Ranch, and Castle Rock.
+  <section class="mx-auto max-w-[85rem] px-4 py-16 sm:px-6 lg:px-8">
+    <div class="mx-auto max-w-3xl text-center">
+      <p class="text-sm font-semibold uppercase tracking-[0.32em] text-brand-600">
+        How we work
       </p>
+      <h2 class="mt-4 text-3xl font-bold text-neutral-900 dark:text-neutral-100">
+        A simple 4-step process built for Colorado properties
+      </h2>
+      <p class="mt-4 text-base text-neutral-600 dark:text-neutral-400">
+        From the first consultation to ongoing maintenance, we keep every project clear, reliable, and rooted in practical landscape performance.
+      </p>
+    </div>
+
+    <div class="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+      {processSteps.map(step => (
+        <div class="rounded-3xl border border-brand-100/80 bg-white p-6 text-center shadow-sm dark:border-neutral-800 dark:bg-neutral-900">
+          <div class="mx-auto mb-5 inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-brand-50 text-brand-700 dark:bg-brand-900 dark:text-brand-300">
+            <Icon name={step.icon} />
+          </div>
+          <h3 class="text-xl font-semibold text-neutral-900 dark:text-neutral-100">
+            {step.title}
+          </h3>
+          <p class="mt-3 text-sm text-neutral-600 dark:text-neutral-400">
+            {step.description}
+          </p>
+        </div>
+      ))}
     </div>
   </section>
 
-  <section id="faq">
-    <FAQ title="Frequently<br />asked questions" faqs={faqs} />
+  <section id="service-area" class="mx-auto max-w-[85rem] px-4 pb-16 sm:px-6 lg:px-8">
+    <div class="mx-auto max-w-3xl text-center">
+      <p class="text-sm font-semibold uppercase tracking-[0.32em] text-brand-600">
+        Service Area
+      </p>
+      <h2 class="mt-4 text-3xl font-bold text-neutral-900 dark:text-neutral-100">
+        Serving the Front Range from Littleton to Colorado Springs
+      </h2>
+      <p class="mt-4 text-base text-neutral-600 dark:text-neutral-400">
+        We focus on regional landscape systems that perform in Colorado's seasonal climate with water-wise planning and resilient installations.
+      </p>
+    </div>
+
+    <div class="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+      {serviceAreas.map(city => (
+        <div class="rounded-3xl border border-brand-100/80 bg-white p-6 shadow-sm dark:border-neutral-800 dark:bg-neutral-900">
+          <p class="text-lg font-semibold text-neutral-900 dark:text-neutral-100">{city}</p>
+        </div>
+      ))}
+    </div>
   </section>
+
+  <section id="faq" class="mx-auto max-w-[85rem] px-4 pb-16 sm:px-6 lg:px-8">
+    <div class="mx-auto max-w-3xl text-center">
+      <p class="text-sm font-semibold uppercase tracking-[0.32em] text-brand-600">
+        Questions answered
+      </p>
+      <h2 class="mt-4 text-3xl font-bold text-neutral-900 dark:text-neutral-100">
+        Frequently asked questions
+      </h2>
+    </div>
+
+    <div class="mt-10 grid gap-6 sm:grid-cols-2">
+      {faqItems.map(item => (
+        <article class="rounded-3xl border border-brand-100/80 bg-white p-6 shadow-sm dark:border-neutral-800 dark:bg-neutral-900">
+          <h3 class="text-lg font-semibold text-neutral-900 dark:text-neutral-100">
+            {item.question}
+          </h3>
+          <p class="mt-3 text-sm leading-relaxed text-neutral-600 dark:text-neutral-400">
+            {item.answer}
+          </p>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <div id="contact">
+    <ContactSection />
+  </div>
 </MainLayout>

@@ -8,14 +8,10 @@ import FeaturesStats from '@components/sections/features/FeaturesStats.astro';
 import { SITE } from '@data/constants';
 
 // Import necessary images
-import blueprints from '@images/blueprints-image.avif';
-import personWorking from '@images/person-working.avif';
+import heroImage from '@images/hero-image.avif';
+import featureImage from '@images/features-image.avif';
 import beforeAfter from '@images/before-after.avif';
-import constructionWorkers from '@images/construction-workers.avif';
 import aerialView from '@images/aerial-view.avif';
-import usingTools from '@images/using-tools.avif';
-import progressBuilding from '@images/progress-building.avif';
-import underConstruction from '@images/under-construction.avif';
 
 interface Article {
   isRightSection: boolean;
@@ -40,18 +36,18 @@ const articles: Article[] = [
     subTitle:
       'Tonte, bordures, taille et nettoyages saisonniers pour garder votre propriété nette toute l’année.',
     single: false,
-    imgOne: blueprints,
-    imgOneAlt: 'Plans et tablette numérique avec des plans de construction.',
-    imgTwo: personWorking,
-    imgTwoAlt: 'Personne travaillant au bureau',
+    imgOne: heroImage,
+    imgOneAlt: 'Pelouse du Colorado bien entretenue avec bordures nettes et massifs soignes.',
+    imgTwo: aerialView,
+    imgTwoAlt: "Vue aerienne d'une propriete amenagee avec des espaces exterieurs entretenus.",
   },
   {
     isRightSection: false,
     title: 'Installation arbres et arbustes',
     subTitle:
       "Nous installons des espèces adaptées au climat du Colorado, avec une planification selon l'altitude et le sol local.",
-    img: beforeAfter,
-    imgAlt: 'Chantier de construction avant et après',
+    img: featureImage,
+    imgAlt: 'Massif plante avec graminees locales, bordures en pierre et textures paysageres.',
     btnExists: true,
     btnTitle: 'Demander une estimation',
     btnURL: '/fr/contact',
@@ -62,19 +58,19 @@ const articles: Article[] = [
     subTitle:
       "Conceptions paysagères à faible consommation d'eau, modernes et simples à entretenir.",
     single: false,
-    imgOne: constructionWorkers,
-    imgOneAlt: 'Ouvriers du bâtiment orchestrant un projet',
-    imgTwo: aerialView,
-    imgTwoAlt: "Vue aérienne d'une construction gérée",
+    imgOne: featureImage,
+    imgOneAlt: 'Details de xeroamenagement avec pierre decorative et plantations peu gourmandes en eau.',
+    imgTwo: heroImage,
+    imgTwoAlt: 'Amenagement xerique du Colorado avec pierre, graminees et relief naturel.',
   },
   {
     isRightSection: false,
     title: 'Murets et aménagements minéraux',
     subTitle:
       'Murets de soutènement et hardscape conçus pour la durabilité, le drainage et la gestion de pente.',
-    img: usingTools,
+    img: beforeAfter,
     imgAlt:
-      'Homme en gilet orange et noir portant un casque blanc tenant un outil électrique jaune et noir',
+      'Transformation paysagere montrant un amenagement en pierre, des plantations et une structure exterieure terminee.',
   },
   {
     isRightSection: true,
@@ -82,10 +78,10 @@ const articles: Article[] = [
     subTitle:
       'Clôtures résidentielles et éléments structurels réalisés avec une finition propre et professionnelle.',
     single: false,
-    imgOne: progressBuilding,
-    imgOneAlt: 'Structure de bâtiment en cours de construction',
-    imgTwo: underConstruction,
-    imgTwoAlt: 'Bâtiment marron et gris en construction',
+    imgOne: aerialView,
+    imgOneAlt: "Vue d'ensemble d'une propriete avec zones exterieures bien definies et amenagement structure.",
+    imgTwo: heroImage,
+    imgTwoAlt: 'Paysage termine du Front Range avec pierre decorative et plantations etagees.',
     btnExists: true,
     btnTitle: 'Commencer votre projet',
     btnURL: '/fr/contact',

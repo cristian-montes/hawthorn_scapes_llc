@@ -3,11 +3,11 @@ title: "Simplifiez l'Approvisionnement et Restez dans les Limites du Budget avec
 description: 'Outils abordables et durables pour des projets de construction efficaces'
 author: 'Olga Zabegina'
 role: 'Directrice Marketing Stratégique'
-authorImage: '@/images/blog/anna.avif'
-authorImageAlt: 'Avatar Description'
+authorImage: '@/images/icon.png'
+authorImageAlt: 'Symbole de marque Hawthorn Scapes'
 pubDate: 2024-02-18
-cardImage: '@/images/blog/post-3.avif'
-cardImageAlt: 'Side view worker wearing gloves'
+cardImage: '@/images/features-image.avif'
+cardImageAlt: 'Massif paysager sobre en eau avec pierre decorative et arbustes'
 readTime: 3
 tags: ['approvisionnement', 'abordable', 'efficacité']
 contents:

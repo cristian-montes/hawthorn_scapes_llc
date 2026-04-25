@@ -7,6 +7,7 @@ import EmailContactInput from '@components/ui/forms/input/EmailContactInput.astr
 import PhoneInput from '@components/ui/forms/input/PhoneInput.astro';
 import TextAreaInput from '@components/ui/forms/input/TextAreaInput.astro';
 import Icon from '@components/ui/icons/Icon.astro';
+import { COMPANY } from '@data/constants';
 
 // Define the variables that will be used in this component
 const title: string = 'Contactez-nous';
@@ -14,7 +15,7 @@ const subTitle: string =
   "Parlez-nous de votre projet et nous vous proposerons les prochaines étapes adaptées à votre propriété.";
 const formTitle: string = 'Demander une estimation';
 const formSubTitle: string =
-  'Nous vous répondrons dans un délai de 1 à 2 jours ouvrables.';
+  `Envoyez les détails de votre projet directement à ${COMPANY.email}.`;
 ---
 
 {/* Contact Us */}
@@ -42,27 +43,47 @@ const formSubTitle: string =
           /* Form for user input with various input fields.-->
         {/* Each field utilizes a different input component for the specific type of input (text, email, phone, and textarea)*/
         }
-        <form name="contact-fr" method="POST" data-netlify="true">
-          <input type="hidden" name="form-name" value="contact-fr" />
+        <form
+          data-contact-form
+          action={`https://formsubmit.co/${COMPANY.email}`}
+          method="POST"
+          data-endpoint={`https://formsubmit.co/ajax/${COMPANY.email}`}
+          data-subject-prefix="Demande d'estimation Hawthorn Scapes"
+          data-success-message="Merci, votre demande a été envoyée. Nous vous répondrons bientôt."
+          data-fallback-message={`Nous n'avons pas pu envoyer le formulaire pour le moment. Ecrivez à ${COMPANY.email} ou appelez le ${COMPANY.phone}.`}
+        >
+          <input type="hidden" name="_subject" value="Demande d'estimation Hawthorn Scapes" />
+          <input type="hidden" name="_captcha" value="false" />
+          <input type="hidden" name="_template" value="table" />
+          <input type="text" name="_honey" class="hidden" tabindex="-1" autocomplete="off" />
           <div class="grid gap-4">
             <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
               <TextInput
                 id="hs-firstname-contacts"
                 label="Prénom"
-                name="hs-firstname-contacts"
+                name="firstName"
+                autocomplete="given-name"
+                required={true}
               />
               <TextInput
                 id="hs-lastname-contacts"
                 label="Nom"
-                name="hs-lastname-contacts"
+                name="lastName"
+                autocomplete="family-name"
+                required={true}
               />
             </div>
-            <EmailContactInput id="hs-email-contacts" />
-            <PhoneInput id="hs-phone-number" />
+            <EmailContactInput
+              id="hs-email-contacts"
+              name="email"
+              required={true}
+            />
+            <PhoneInput id="hs-phone-number" name="phone" />
             <TextAreaInput
               id="hs-about-contacts"
               label="Détails"
-              name="hs-about-contacts"
+              name="details"
+              required={true}
             />
           </div>
 
@@ -73,6 +94,11 @@ const formSubTitle: string =
           <div class="mt-3 text-center">
             <p class="text-sm text-neutral-600 dark:text-neutral-400">
               {formSubTitle}
+            </p>
+            <p
+              data-form-status
+              class="mt-3 hidden rounded-lg border px-4 py-3 text-left text-sm dark:bg-brand-950/30"
+            >
             </p>
           </div>
         </form>
@@ -93,11 +119,11 @@ const formSubTitle: string =
         </ContactIconBlock>
 
         <ContactIconBlock
-          heading="FAQ"
-          content="Explorez notre FAQ pour des réponses rapides et claires aux questions courantes."
+          heading="Appelez-nous"
+          content="Discutez directement de votre projet, de la portée et des délais."
           isLinkVisible={true}
-          linkTitle="Visiter la FAQ"
-          linkURL="/fr/#faq"
+          linkTitle={COMPANY.phone}
+          linkURL={COMPANY.phoneHref}
           isArrowVisible={true}
           ><Icon name="chatBubble" />
         </ContactIconBlock>
@@ -114,11 +140,93 @@ const formSubTitle: string =
           heading="Contact par e-mail"
           content="Préférez-vous un e-mail ? Écrivez-nous à"
           isLinkVisible={true}
-          linkTitle="hello@hawthornscapes.com"
-          linkURL="mailto:hello@hawthornscapes.com"
+          linkTitle={COMPANY.email}
+          linkURL={`mailto:${COMPANY.email}`}
           ><Icon name="envelopeOpen" />
         </ContactIconBlock>
       </div>
     </div>
   </div>
 </section>
+
+<script is:inline>
+  const initContactForms = () => {
+    document.querySelectorAll('[data-contact-form]').forEach(formElement => {
+      const form = formElement;
+      if (!(form instanceof HTMLFormElement) || form.dataset.initialized === 'true') {
+        return;
+      }
+
+      form.dataset.initialized = 'true';
+      const status = form.querySelector('[data-form-status]');
+
+      form.addEventListener('submit', event => {
+        event.preventDefault();
+
+        if (!form.reportValidity()) {
+          return;
+        }
+
+        const formData = new FormData(form);
+        const firstName = `${formData.get('firstName') || ''}`.trim();
+        const lastName = `${formData.get('lastName') || ''}`.trim();
+        const email = `${formData.get('email') || ''}`.trim();
+        const fullName = [firstName, lastName].filter(Boolean).join(' ');
+        const subjectPrefix = form.dataset.subjectPrefix || 'Demande de projet';
+        const endpoint = form.dataset.endpoint || '';
+        const successMessage =
+          form.dataset.successMessage ||
+          'Votre demande a ete envoyee avec succes.';
+        const fallbackMessage =
+          form.dataset.fallbackMessage ||
+          "Nous n'avons pas pu envoyer votre demande pour le moment.";
+
+        formData.set('_subject', `${subjectPrefix} - ${fullName}`);
+        formData.set('_replyto', email);
+        formData.set('_cc', '');
+        formData.set('name', fullName);
+        formData.set('page', window.location.href);
+
+        const setStatus = (message, isError = false) => {
+          if (!(status instanceof HTMLElement)) return;
+          status.textContent = message;
+          status.classList.remove('hidden');
+          status.className =
+            `mt-3 rounded-lg border px-4 py-3 text-left text-sm ${
+              isError
+                ? 'border-red-200 bg-red-50 text-red-900 dark:border-red-900 dark:bg-red-950/30 dark:text-red-100'
+                : 'border-brand-200 bg-brand-50 text-brand-900 dark:border-brand-900 dark:bg-brand-950/30 dark:text-brand-100'
+            }`;
+        };
+
+        fetch(endpoint, {
+          method: 'POST',
+          headers: {
+            Accept: 'application/json',
+          },
+          body: formData,
+        })
+          .then(async response => {
+            if (!response.ok) {
+              throw new Error('Request failed');
+            }
+            const data = await response.json();
+            if (data.success !== 'true' && data.success !== true) {
+              throw new Error('Submission failed');
+            }
+            form.reset();
+            setStatus(successMessage);
+          })
+          .catch(() => {
+            setStatus(fallbackMessage, true);
+          });
+      });
+    });
+  };
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initContactForms);
+  } else {
+    initContactForms();
+  }
+</script>

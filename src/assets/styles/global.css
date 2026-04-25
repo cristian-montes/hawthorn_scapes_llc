@@ -102,19 +102,19 @@
   --color-zinc-900: oklch(0.21 0.006 285.885);
   --color-zinc-950: oklch(0.141 0.005 285.823);
 
-  --color-brand-50: #eef5f1;
-  --color-brand-100: #dcece4;
-  --color-brand-200: #bdd9cb;
-  --color-brand-300: #9fc6b3;
-  --color-brand-400: #6fa68a;
-  --color-brand-500: #3e7a5f;
-  --color-brand-600: #1f5a48;
-  --color-brand-700: #174236;
-  --color-brand-800: #13372d;
-  --color-brand-900: #0f2c24;
+  --color-brand-50: #ecf7ee;
+  --color-brand-100: #d4efda;
+  --color-brand-200: #aae6b7;
+  --color-brand-300: #7ed38d;
+  --color-brand-400: #4fa86a;
+  --color-brand-500: #166534;
+  --color-brand-600: #14502c;
+  --color-brand-700: #114424;
+  --color-brand-800: #0d371f;
+  --color-brand-900: #0a2e1a;
 
-  --color-accent-500: #b5233a;
-  --color-sand-50: #f5f2ec;
+  --color-accent-500: #B91C1C;
+  --color-sand-50: #F9FAF7;
   --color-ink-900: #1f2937;
 }
 

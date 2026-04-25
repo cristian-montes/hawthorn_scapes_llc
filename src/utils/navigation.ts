@@ -1,10 +1,8 @@
 // An array of links for navigation bar
 const navBarLinks = [
   { name: 'Home', url: '/' },
-  { name: 'Services', url: '/services' },
-  { name: 'Service Area', url: '/#service-area' },
-  { name: 'FAQ', url: '/#faq' },
-  { name: 'Contact', url: '/contact' },
+  { name: 'Services', url: '/#services' },
+  { name: 'Contact', url: '/#contact' },
 ];
 // An array of links for footer
 const footerLinks = [
@@ -22,7 +20,7 @@ const footerLinks = [
       { name: 'About', url: '/' },
       { name: 'Service Area', url: '/#service-area' },
       { name: 'FAQ', url: '/#faq' },
-      { name: 'Contact', url: '/contact' },
+      { name: 'Contact', url: '/#contact' },
     ],
   },
 ];

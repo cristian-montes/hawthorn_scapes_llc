@@ -36,6 +36,22 @@ interface Props {
       customDescription={customDescription}
       customOgTitle={customOgTitle}
     />
+    <script type="application/ld+json" is:inline set:html={JSON.stringify({
+      '@context': 'https://schema.org',
+      '@type': 'LandscapingService',
+      name: 'Hawthorn Scapes, LLC',
+      areaServed: ['Denver', 'Littleton', 'Centennial', 'Highlands Ranch', 'Castle Rock', 'Colorado Springs'],
+      url: 'https://hawthornscapes.com',
+      hasOfferCatalog: {
+        '@type': 'OfferCatalog',
+        name: 'Services',
+        itemListElement: [
+          { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Xeriscaping' } },
+          { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Hardscape & Retaining Walls' } },
+          { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Mowing & Clean-ups' } },
+        ],
+      },
+    })} />
     {/* Define the title of the page */}
     <title>{title}</title>
     <script is:inline>
@@ -50,7 +66,7 @@ interface Props {
         document.documentElement.classList.remove('dark');
       }
     </script>
-    <script>
+    <script type="module" is:inline>
       import '@scripts/lenisSmoothScroll.js';
     </script>
   </head>
@@ -72,13 +88,10 @@ interface Props {
       </main>
     </div>
     <FooterSection />
-    <script>
+    <script type="module" is:inline>
       // https://preline.co
       import 'preline';
-      const init = () =>
-        (
-          window as Window & { HSStaticMethods?: { autoInit?: () => void } }
-        ).HSStaticMethods?.autoInit?.();
+      const init = () => window.HSStaticMethods?.autoInit?.();
       if (document.readyState === 'loading')
         document.addEventListener('DOMContentLoaded', init);
       else init();

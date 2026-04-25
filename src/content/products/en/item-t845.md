@@ -5,9 +5,9 @@ main:
   id: 1
   content: |
     Introducing the SF-TB T845 – your go-to solution for precision fastening in machinery and equipment. This comprehensive set of machine screws is meticulously crafted to meet the stringent demands of industrial applications, ensuring secure and reliable fastening.
-  imgCard: '@/images/product-image-1.avif'
-  imgMain: '@/images/product-image-main-1.avif'
-  imgAlt: 'Mockup boxes of machine screws set'
+  imgCard: '@/images/hero-image.avif'
+  imgMain: '@/images/features-image.avif'
+  imgAlt: 'Front Range curb appeal landscape with stone and planting detail'
 tabs:
   - id: 'tabs-with-card-item-1'
     dataTab: '#tabs-with-card-1'
@@ -50,6 +50,6 @@ specificationsRight:
   - title: 'Applications'
     subTitle: 'Ideal for use in a wide range of industrial machinery, equipment, and assemblies that demand precise and secure fastening.'
 blueprints:
-  first: '@/images/blueprint-1.avif'
-  second: '@/images/blueprint-2.avif'
+  first: '@/images/aerial-view.avif'
+  second: '@/images/before-after.avif'
 ---

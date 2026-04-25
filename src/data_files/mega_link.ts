@@ -1,54 +1,54 @@
 // Define data structures for services and success stories
 export const servicesData = [
   {
-    title: 'Explore Advice and Explanations',
+    title: 'Landscape Maintenance',
     description:
-      "Dive deep into helpful guides and explanations for all of ScrewFast's features",
+      'Keep lawns, beds, and edges tidy with recurring service built for Colorado seasons.',
     icon: 'guides',
-    url: '#',
+    url: '/services',
   },
   {
-    title: 'Discover Integrations',
+    title: 'Planting & Xeriscaping',
     description:
-      'Supercharge Your Workflow. Seamless integrations with all your favorite tools',
+      'Water-wise planting plans, native materials, and curb appeal designed for the Front Range.',
     icon: 'puzzle',
-    url: '#',
+    url: '/services',
   },
   {
-    title: 'Expert Services',
-    description: "Go beyond tools with ScrewFast's expert services",
+    title: 'Hardscape & Retaining Walls',
+    description: 'Add structure, drainage control, and durable outdoor spaces with clean installation work.',
     icon: 'rocket',
-    url: '#',
+    url: '/services',
   },
   {
-    title: 'Cutting-Edge Tools',
+    title: 'Fencing & Structure Work',
     description:
-      "Build Smarter, Faster. Experience next-level efficiency with ScrewFast's cutting-edge construction tools",
+      'Residential fences and landscape structures installed to look sharp and last.',
     icon: 'hammer',
-    url: '#',
+    url: '/services',
   },
   {
-    title: 'Simple Plans',
+    title: 'Request an Estimate',
     description:
-      "Boost your efficiency with ScrewFast's straightforward, value-driven plans",
+      'Share your project goals and get a practical next step from the Hawthorn Scapes team.',
     icon: 'sparks',
-    url: '#',
+    url: '/contact',
   },
   {
-    title: 'Community Forum',
-    description: 'Learn, share, and connect with other ScrewFast users',
+    title: 'Service Area',
+    description: 'Serving Metro Denver through Colorado Springs with reliable landscape care and installs.',
     icon: 'community',
-    url: '#',
+    url: '/#service-area',
   },
 ];
 
 export const successStoriesData = [
   {
-    image:
-      'https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=1376&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D8&auto=format&fit=facearea&facepad=2&w=320&h=320&q=80',
-    alt: 'Portrait of a smiling person',
+    image: beforeAfter,
+    alt: 'Completed residential landscape transformation',
     description:
-      'See how ScrewFast has empowered businesses of all sizes to achieve outstanding results.',
-    learnMoreUrl: '#',
+      'See the kind of clean, durable landscape transformation Hawthorn Scapes brings to Front Range properties.',
+    learnMoreUrl: '/services',
   },
 ];
+import beforeAfter from '../images/before-after.avif';

@@ -2,9 +2,6 @@
 // Import the necessary AccordionItem component and JSON data
 import AccordionItem from '@components/ui/blocks/AccordionItem.astro';
 
-// Define props from Astro
-const { title, faqs } = Astro.props;
-
 // Define TypeScript interface for props
 interface Faq {
   question: string;
@@ -20,8 +17,12 @@ interface Props {
   title: string;
   faqs: FaqGroup;
 }
+
+// Define props from Astro with a default value to prevent "undefined" crashes
+const { title, faqs = { faqs: [] } } = Astro.props;
+
 // Define a helper function to generate ids dynamically.
-const makeId = (base: any, index: any) => `${base}${index + 1}`;
+const makeId = (base: string, index: number) => `${base}${index + 1}`;
 ---
 
 {
@@ -38,8 +39,9 @@ const makeId = (base: any, index: any) => `${base}${index + 1}`;
         >
           <Fragment set:html={title} />
         </h2>
+        {/* Added optional chaining to subTitle */}
         <p class="mt-1 hidden text-neutral-600 md:block dark:text-neutral-400">
-          {faqs.subTitle}
+          {faqs?.subTitle}
         </p>
       </div>
     </div>
@@ -49,10 +51,8 @@ const makeId = (base: any, index: any) => `${base}${index + 1}`;
         class="hs-accordion-group divide-y divide-neutral-200 dark:divide-neutral-700"
       >
         {
-          faqs.faqs.map((question, i) => {
-            {
-              /* Generate ids dynamically for each FAQ accordion item. */
-            }
+          /* Added optional chaining to prevent "Cannot read properties of undefined (reading 'map')" */
+          faqs?.faqs?.map((question, i) => {
             let id = makeId(
               'hs-basic-with-title-and-arrow-stretched-heading-',
               i

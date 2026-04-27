@@ -19,7 +19,11 @@ const {
   rating,
   reviews,
   src,
+  srcLeft,
+  srcRight,
   alt,
+  altLeft,
+  altRight,
 } = Astro.props;
 
 // Define TypeScript interface for props
@@ -36,7 +40,11 @@ interface Props {
   rating?: string;
   reviews?: string;
   src?: any;
+  srcLeft?: any;
+  srcRight?: any;
   alt?: string;
+  altLeft?: string;
+  altRight?: string;
 }
 ---
 
@@ -93,20 +101,45 @@ interface Props {
     }
   </div>
   {/* Hero Image Section */}
-  <div class="flex w-full">
-    <div class="top-12 overflow-hidden">
-      {
-        src && alt && (
-          <Image
-            src={src}
-            alt={alt}
-            class="h-full w-full scale-110 object-cover object-center"
-            draggable={'false'}
-            loading={'eager'}
-            format={'avif'}
-          />
-        )
-      }
+  <div class="flex w-full justify-center">
+    <div class="w-full overflow-hidden rounded-[2rem] border border-neutral-200 bg-white shadow-xl shadow-slate-100/70 dark:border-neutral-800 dark:bg-neutral-950 dark:shadow-none">
+      {srcLeft && srcRight ? (
+        <div class="grid grid-cols-1 gap-0 md:grid-cols-2">
+          <div class="overflow-hidden">
+            <Image
+              src={srcLeft}
+              alt={altLeft ?? alt ?? 'Hero image left'}
+              class="h-[20rem] w-full object-cover object-center sm:h-[24rem]"
+              draggable={'false'}
+              loading={'eager'}
+              format={'avif'}
+            />
+          </div>
+          <div class="overflow-hidden">
+            <Image
+              src={srcRight}
+              alt={altRight ?? alt ?? 'Hero image right'}
+              class="h-[20rem] w-full object-cover object-center sm:h-[24rem]"
+              draggable={'false'}
+              loading={'eager'}
+              format={'avif'}
+            />
+          </div>
+        </div>
+      ) : (
+        <div class="overflow-hidden">
+          {src && alt && (
+            <Image
+              src={src}
+              alt={alt}
+              class="h-full w-full scale-110 object-cover object-center"
+              draggable={'false'}
+              loading={'eager'}
+              format={'avif'}
+            />
+          )}
+        </div>
+      )}
     </div>
   </div>
 </section>

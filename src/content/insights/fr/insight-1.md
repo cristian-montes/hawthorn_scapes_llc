@@ -1,8 +1,8 @@
 ---
 title: "L'avenir de la technologie de la construction"
 description: 'Explorez le rôle pionnier de ScrewFast dans la révolution de la construction grâce à des technologies avancées et des solutions innovantes.'
-cardImage: '@/images/insights/insight-1.avif'
-cardImageAlt: "Vue de dessus de l'agencement des outils mécaniques"
+cardImage: '@/images/hero-image.avif'
+cardImageAlt: 'Amenagement paysager du Colorado avec pierre et graminees'
 ---
 
 Dans le monde de la construction, où l'innovation rencontre la praticité, ScrewFast se dresse comme un phare d'avancées pionnières. Depuis des années, cette entreprise est à la pointe de la révolution de la construction grâce à son engagement indéfectible envers les technologies avancées et les solutions innovantes. Des gratte-ciels aux ponts, ScrewFast a laissé une marque indélébile sur l'industrie, façonnant l'avenir de la construction de manière inimaginable.

@@ -1,38 +1,37 @@
 // An array of links for navigation bar
 const navBarLinks = [
   { name: 'Home', url: '/' },
-  { name: 'Products', url: '/products' },
+  { name: 'About', url: '/about' },
   { name: 'Services', url: '/services' },
-  { name: 'Blog', url: '/blog' },
-  { name: 'Contact', url: '/contact' },
+  { name: 'Contact', url: '/#contact' },
 ];
 // An array of links for footer
 const footerLinks = [
   {
-    section: 'Ecosystem',
+    section: 'Company',
     links: [
-      { name: 'Documentation', url: '/welcome-to-docs/' },
-      { name: 'Tools & Equipment', url: '/products' },
-      { name: 'Construction Services', url: '/services' },
+      { name: 'About', url: '/about' },
+      { name: 'Services', url: '/services' },
+      { name: 'Service Area', url: '/#service-area' },
+      { name: 'FAQ', url: '/#faq' },
+      { name: 'Contact', url: '/#contact' },
     ],
   },
   {
-    section: 'Company',
+    section: 'Contact',
     links: [
-      { name: 'About us', url: '#' },
-      { name: 'Blog', url: '/blog' },
-      { name: 'Careers', url: '#' },
-      { name: 'Customers', url: '#' },
+      { name: 'Email', url: 'mailto:info@hawthornscapes.com' },
+      { name: 'Phone', url: 'tel:7208491565' },
     ],
   },
 ];
 // An object of links for social icons
 const socialLinks = {
-  facebook: 'https://www.facebook.com/',
-  x: 'https://twitter.com/',
-  github: 'https://github.com/mearashadowfax/ScrewFast',
-  google: 'https://www.google.com/',
-  slack: 'https://slack.com/',
+  facebook: '#',
+  x: '#',
+  github: '#',
+  google: '#',
+  slack: '#',
 };
 
 export default {

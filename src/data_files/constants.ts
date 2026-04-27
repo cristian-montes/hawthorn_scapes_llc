@@ -1,15 +1,22 @@
-import ogImageSrc from '@images/social.png';
-
 export const SITE = {
-  title: 'ScrewFast',
-  tagline: 'Top-quality Hardware Tools',
+  title: 'Hawthorn Scapes | Expert Landscaping & Xeriscaping in South Metro Denver',
+  tagline: "Colorado's Premier Landscaping",
   description:
-    'ScrewFast offers top-tier hardware tools and expert construction services to meet all your project needs. Start exploring and contact our sales team for superior quality and reliability.',
+    'Professional lawn care, hardscapes, and water-efficient xeriscaping for Littleton, Castle Rock, and Highlands Ranch.',
   description_short:
-    'ScrewFast offers top-tier hardware tools and expert construction services to meet all your project needs.',
-  url: 'https://screwfast.uk',
-  author: 'Emil Gulamov',
+    'Professional landscaping, xeriscaping, and hardscape services across South Metro Denver.',
+  url: 'https://hawthornscapes.com',
+  author: 'Hawthorn Scapes LLC',
 };
+
+export const COMPANY = {
+  name: 'Hawthorn Scapes LLC',
+  email: 'info@hawthornscapes.com',
+  phone: '7208491565',
+  phoneHref: 'tel:7208491565',
+  copyright: '© 2026 Hawthorn Scapes LLC. All rights reserved.',
+};
+
 
 export const SEO = {
   title: SITE.title,
@@ -35,10 +42,10 @@ export const OG = {
   locale: 'en_US',
   type: 'website',
   url: SITE.url,
-  title: `${SITE.title}: : Hardware Tools & Construction Services`,
+  title: `${SITE.title} | Colorado Landscaping Services`,
   description:
-    "Equip your projects with ScrewFast's top-quality hardware tools and expert construction services. Trusted by industry leaders, ScrewFast offers simplicity, affordability, and reliability. Experience the difference with user-centric design and cutting-edge tools. Start exploring now!",
-  image: ogImageSrc,
+    'Expert landscaping, xeriscaping, retaining walls, tree and shrub installation, and lawn maintenance across the Front Range.',
+  image: '/social-card.png',
 };
 
 export const partnersData = [

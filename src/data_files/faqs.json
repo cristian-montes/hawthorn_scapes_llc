@@ -1,29 +1,29 @@
 {
-  "subTitle": "Ask us anything about our brand and products, and get factual responses.",
+  "subTitle": "Ask about service areas, scheduling, maintenance, or landscape installation and get a clear answer from Hawthorn Scapes.",
   "faqs": [
     {
-      "question": "What types of tools are included in the Starter Kit?",
-      "answer": "The Starter Kit features essential hand and power tools for diverse DIY projects, including hammers, drills, screwdrivers, and a variety of fasteners. It's a curated selection to help beginners and experienced DIYers alike tackle most home improvement tasks."
+      "question": "What areas do you serve?",
+      "answer": "Hawthorn Scapes serves Metro Denver through Colorado Springs, including Littleton, Highlands Ranch, Castle Rock, Centennial, and nearby communities."
     },
     {
-      "question": "Can I upgrade from the Starter Kit to the Professional Toolbox?",
-      "answer": "Absolutely! You can upgrade to the Professional Toolbox at any time to access a wider range of high-quality tools, enjoy priority customer support, and receive exclusive content. Contact our support team for a seamless transition."
+      "question": "Do you offer recurring maintenance?",
+      "answer": "Yes. We provide recurring lawn and landscape maintenance, including mowing, edging, trimming, and seasonal cleanup support."
     },
     {
-      "question": "What discounts are available for bulk orders through the Professional Toolbox plan?",
-      "answer": "Professional Toolbox members are entitled to exclusive discounts on bulk orders, the percentage of which may vary depending on the order volume. Get in touch with us to discuss your needs, and we'll provide a tailored discount structure."
+      "question": "Can you help with xeriscaping and water-wise planting?",
+      "answer": "Yes. We design and install low-water landscapes, drought-tolerant planting beds, and practical hardscape features suited to Colorado conditions."
     },
     {
-      "question": "What kind of customer support can I expect?",
-      "answer": "All our customers receive dedicated email support. With the Starter Kit, you'll receive our standard support, while the Professional Toolbox plan upgrades you to priority support, meaning faster response times and specialized assistance."
+      "question": "Do you build retaining walls and fences?",
+      "answer": "We do. Hawthorn Scapes handles retaining walls, fencing, and related outdoor structure work as part of complete landscape improvement projects."
     },
     {
-      "question": "How current are the online resources and tutorials?",
-      "answer": "We regularly update our online resources and tutorials to reflect the latest trends in DIY and construction, as well as introductions to new tools and techniques. Our material aims to be comprehensive and user-friendly for all skill levels."
+      "question": "How quickly do you respond to quote requests?",
+      "answer": "We typically follow up within one business day so we can learn about your project scope, timeline, and property needs."
     },
     {
-      "question": "Does ScrewFast offer services for large-scale construction projects?",
-      "answer": "Yes, our Enterprise Solutions are designed for larger companies requiring comprehensive services. We provide consultation, planning, and supply of high-grade tools and materials, as well as staffing solutions for substantial construction needs. Contact us for a customized quote."
+      "question": "How can I send a project request?",
+      "answer": "Use the contact form on the site, email info@hawthornscapes.com, or call 7208491565 and we will help you with the next step."
     }
   ]
 }

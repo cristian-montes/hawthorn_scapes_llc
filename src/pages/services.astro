@@ -7,14 +7,16 @@ import RightSection from '@components/ui/blocks/RightSection.astro';
 import FeaturesStats from '@components/sections/features/FeaturesStats.astro';
 
 // Import necessary images
-import blueprints from '@images/blueprints-image.avif';
-import personWorking from '@images/person-working.avif';
-import beforeAfter from '@images/before-after.avif';
-import constructionWorkers from '@images/construction-workers.avif';
-import aerialView from '@images/aerial-view.avif';
-import usingTools from '@images/using-tools.avif';
-import progressBuilding from '@images/progress-building.avif';
-import underConstruction from '@images/under-construction.avif';
+// import heroImage from '@images/hero-image.avif';
+// import featureImage from '@images/features-image.avif';
+import universalXeriscapeImage from '@images/universal_xeriscape.png';
+import modernBareXeriscapeImage from '@images/modern_bare_xeriscape.png';
+import cleanYardImage from '@images/clean_front_yard.png';
+import hardScapeImage from '@images/hard_scape.png';
+import freshLwanImage from '@images/fresh_lawn.jpg';
+import fencePergolaImage from '@images/fence_pergola.png';
+import railFenceImage from '@images/rail_fence.png';
+import treeInstallationImage from '@images/tree_installation.png';
 import { SITE } from '@data/constants';
 
 interface Article {
@@ -36,66 +38,66 @@ interface Article {
 const articles: Article[] = [
   {
     isRightSection: true,
-    title: 'Delivering Expert Guidance',
+    title: 'Lawn & Maintenance',
     subTitle:
-      'Embarking on a construction project can be overwhelming. With our professional consultation services, we guide you through every stage, ensuring you make informed decisions. Whether you are a DIY enthusiast or a skilled contractor, our experts are on hand to offer tailored advice on product selection, project scope, and compliance with local regulations.',
+      'Reliable mowing, edging, trimming, and seasonal cleanups that keep your property sharp through every Colorado season.',
     single: false,
-    imgOne: blueprints,
-    imgOneAlt: 'Blueprints and digital tablet with construction plans.',
-    imgTwo: personWorking,
-    imgTwoAlt: 'Person working in the office',
+    imgOne: cleanYardImage,
+    imgOneAlt: 'Well-maintained lawn with stone edging and lush plantings.',
+    imgTwo: freshLwanImage,
+    imgTwoAlt: 'Aerial view of a landscaped residential property with maintained outdoor areas.',
   },
   {
     isRightSection: false,
-    title: 'Transforming Designs into Reality',
+    title: 'Tree, Shrub, Flower and Planting Bed Installation',
     subTitle:
-      'Our skilled craftsmen bring precision and excellence to every construction project. From minor installations to substantial structural work, ScrewFast offers reliable construction services to turn your plans into tangible outcomes. We ensure the highest standards of safety and workmanship, utilizing top-quality tools and materials from our extensive inventory.',
-    img: beforeAfter,
-    imgAlt: 'Construction site before and after',
+      'We install Colorado-hardy trees, shrubs, and planting beds designed for local altitude, soil, and water constraints.',
+    img: treeInstallationImage,
+    imgAlt: 'Fresh planting bed with native grasses, stone edging, and layered landscape texture.',
     btnExists: true,
-    btnTitle: 'Learn More',
-    btnURL: '#',
+    btnTitle: 'Request an Estimate',
+    btnURL: '/contact',
   },
   {
     isRightSection: true,
-    title: 'Navigating Projects with Professional Oversight',
+    title: 'Xeriscaping & Water Efficiency',
     subTitle:
-      'Effective project management is at the heart of any successful build. ScrewFast provides thorough planning and robust management services that keep your project on time and within budget. Let us handle the complexities of workflow coordination, resource allocation, and stakeholder communication while you focus on your vision.',
+      'Low-maintenance xeriscape designs built to reduce water usage while maintaining clean, modern curb appeal.',
     single: false,
-    imgOne: constructionWorkers,
-    imgOneAlt: 'Construction workers orchestrating a project',
-    imgTwo: aerialView,
-    imgTwoAlt: 'Aerial view of managed construction',
+    imgOne: universalXeriscapeImage,
+    imgOneAlt: 'Water-wise planting detail with stone mulch and drought-tolerant grasses.',
+    imgTwo: modernBareXeriscapeImage,
+    imgTwoAlt: 'Colorado xeriscape front yard with layered stone, grasses, and mountain backdrop.',
   },
   {
     isRightSection: false,
-    title: 'Ensuring Long-lasting Performance',
+    title: 'Hardscape & Retaining Walls',
     subTitle:
-      "Our commitment to your project doesn't end at completion. ScrewFast offers ongoing maintenance and support services to ensure your construction's longevity and performance. From regular check-ups to emergency assistance, our responsive team is there to provide seamless support.",
-    img: usingTools,
+      'Retaining walls and hardscape features engineered for slope management, drainage performance, and long-term durability.',
+    img: hardScapeImage,
     imgAlt:
-      'Man in orange and black vest wearing white helmet holding yellow and black power tool',
+      'Landscape transformation showing installed stonework, planting beds, and finished outdoor structure details.',
   },
   {
     isRightSection: true,
-    title: 'Crafting Bespoke Strategies for Unique Challenges',
+    title: 'Fencing & Outdoor Structure Work',
     subTitle:
-      'For our larger enterprise clients, ScrewFast offers custom solutions designed to meet specific industry challenges. By understanding your unique needs, we engineer tailored strategies aimed at optimizing your operations, enhancing efficiency, and driving your business forward.',
+      'Residential fencing and structural landscape elements installed with an emphasis on quality, safety, and lasting value.',
     single: false,
-    imgOne: progressBuilding,
-    imgOneAlt: 'In progress building structure',
-    imgTwo: underConstruction,
-    imgTwoAlt: 'Brown and gray building under construction',
+    imgOne: fencePergolaImage,
+    imgOneAlt: 'Residential property layout showing defined outdoor zones and structured landscape lines.',
+    imgTwo: railFenceImage,
+    imgTwoAlt: 'Finished Front Range landscape with stone accents and layered planting.',
     btnExists: true,
-    btnTitle: 'Read more',
-    btnURL: '#',
+    btnTitle: 'Start Your Project',
+    btnURL: '/contact',
   },
 ];
 
 const pageTitle: string = `Services | ${SITE.title}`;
 const metaDescription =
-  'Uniting expertise with your vision, ScrewFast provides exceptional service and comprehensive solutions in the hardware and construction industry, from consultation to project completion.';
-const ogTitle = 'Expert Consultation Services | ScrewFast';
+  'Explore Hawthorn Scapes services including maintenance, xeriscaping, planting, hardscape construction, and fencing across Metro Denver to Colorado Springs.';
+const ogTitle = `Landscaping Services | ${SITE.title}`;
 ---
 
 <MainLayout
@@ -105,17 +107,17 @@ const ogTitle = 'Expert Consultation Services | ScrewFast';
   structuredData={{
     '@context': 'https://schema.org',
     '@type': 'WebPage',
-    '@id': 'https://screwfast.uk/services',
-    url: 'https://screwfast.uk/services',
-    name: 'Expert Consultation Services | ScrewFast',
+    '@id': 'https://hawthornscapes.com/services',
+    url: 'https://hawthornscapes.com/services',
+    name: `Landscaping Services | ${SITE.title}`,
     description:
-      'Uniting expertise with your vision, ScrewFast provides exceptional service and comprehensive solutions in the hardware and construction industry, from consultation to project completion.',
+      'Explore Hawthorn Scapes services including maintenance, xeriscaping, planting, hardscape construction, and fencing across Metro Denver to Colorado Springs.',
     isPartOf: {
       '@type': 'WebSite',
-      url: 'https://screwfast.uk',
-      name: 'ScrewFast',
+      url: 'https://hawthornscapes.com',
+      name: SITE.title,
       description:
-        'ScrewFast offers top-tier hardware tools and expert construction services to meet all your project needs.',
+        SITE.description,
     },
     inLanguage: 'en-US',
   }}
@@ -124,11 +126,11 @@ const ogTitle = 'Expert Consultation Services | ScrewFast';
     /* MainSection is the introductory section of the page, it also contains a CTA button */
   }
   <MainSection
-    title="Uniting Expertise with Your Vision"
-    subTitle="At ScrewFast, we take pride in providing comprehensive solutions and exceptional service in the hardware and construction industry. Our experienced team is dedicated to supporting your project from inception to completion with a range of specialized services."
+    title="Landscaping Services Built for Colorado"
+    subTitle="Hawthorn Scapes provides practical, high-quality outdoor solutions designed for Front Range weather, terrain, and water demands."
     btnExists={true}
-    btnTitle="Schedule a Consultation"
-    btnURL="#"
+    btnTitle="Request a Free Estimate"
+    btnURL="/contact"
   />
   {
     /* RightSection and LeftSection contain details about various services along with pertinent imagery.
@@ -171,21 +173,21 @@ const ogTitle = 'Expert Consultation Services | ScrewFast';
   {/* FeaturesStats section showcases essential stats valuable to users */}
   <FeaturesStats
     title="By the Numbers"
-    subTitle="Our commitment to quality and reliability is evident in every project we undertake. At ScrewFast, we are dedicated to delivering industry-leading services that ensure your construction projects are built to last."
-    mainStatTitle="96%"
-    mainStatSubTitle="of our clients rate their experience with ScrewFast as exceptional"
+    subTitle="We focus on consistency, communication, and craftsmanship from first walkthrough to final cleanup."
+    mainStatTitle="100%"
+    mainStatSubTitle="customized scopes built around your property and goals"
     stats={[
       {
-        stat: '99.8%',
-        description: 'project completion rate',
+        stat: '6',
+        description: 'core service areas across the Front Range',
       },
       {
-        stat: '5,000+',
-        description: 'successful installations',
+        stat: '4',
+        description: 'seasons of planning built into each maintenance cycle',
       },
       {
-        stat: '85%',
-        description: 'client growth year-over-year',
+        stat: '1',
+        description: 'single trusted team from estimate to completion',
       },
     ]}
   />

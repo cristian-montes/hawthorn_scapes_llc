@@ -7,13 +7,15 @@ import EmailContactInput from '@components/ui/forms/input/EmailContactInput.astr
 import PhoneInput from '@components/ui/forms/input/PhoneInput.astro';
 import TextAreaInput from '@components/ui/forms/input/TextAreaInput.astro';
 import Icon from '@components/ui/icons/Icon.astro';
+import { COMPANY } from '@data/constants';
 
 // Define the variables that will be used in this component
 const title: string = 'Contact us';
 const subTitle: string =
-  "Have questions or want to discuss a project? Reach out, and let's craft the perfect solution with our tools and services.";
-const formTitle: string = 'Fill in the form below';
-const formSubTitle: string = "We'll get back to you in 1-2 business days.";
+  "Tell us about your property goals and we will follow up with the right next step for your project.";
+const formTitle: string = 'Request an estimate';
+const formSubTitle: string =
+  `Send your project details directly to ${COMPANY.email}.`;
 ---
 
 {/* Contact Us */}
@@ -41,26 +43,49 @@ const formSubTitle: string = "We'll get back to you in 1-2 business days.";
           /* Form for user input with various input fields.-->
         {/* Each field utilizes a different input component for the specific type of input (text, email, phone, and textarea)*/
         }
-        <form>
+        <form
+          data-contact-form
+          action={`https://formsubmit.co/${COMPANY.email}`}
+          method="POST"
+          data-endpoint={`https://formsubmit.co/ajax/${COMPANY.email}`}
+          data-subject-prefix="Hawthorn Scapes estimate request"
+          data-success-message="Thanks, your request was sent. We will follow up soon."
+          data-fallback-message={`We could not send the form right now. Email ${COMPANY.email} or call ${COMPANY.phone}.`}
+        >
+          <input type="hidden" name="_subject" value="Hawthorn Scapes estimate request" />
+          <input type="hidden" name="_next" value="https://hawthornscapes.com/?contact=success" />
+          <input type="hidden" name="_captcha" value="true" />
+          <input type="hidden" name="_template" value="table" />
+          <input type="hidden" name="_autoresponse" value="Thanks for reaching out! We will review your request and reply shortly." />
+          <input type="text" name="_honey" class="hidden" tabindex="-1" autocomplete="off" />
           <div class="grid gap-4">
             <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
               <TextInput
                 id="hs-firstname-contacts"
                 label="First Name"
-                name="hs-firstname-contacts"
+                name="firstName"
+                autocomplete="given-name"
+                required={true}
               />
               <TextInput
                 id="hs-lastname-contacts"
                 label="Last Name"
-                name="hs-lastname-contacts"
+                name="lastName"
+                autocomplete="family-name"
+                required={true}
               />
             </div>
-            <EmailContactInput id="hs-email-contacts" />
-            <PhoneInput id="hs-phone-number" />
+            <EmailContactInput
+              id="hs-email-contacts"
+              name="email"
+              required={true}
+            />
+            <PhoneInput id="hs-phone-number" name="phone" />
             <TextAreaInput
               id="hs-about-contacts"
               label="Details"
-              name="hs-about-contacts"
+              name="details"
+              required={true}
             />
           </div>
 
@@ -72,6 +97,11 @@ const formSubTitle: string = "We'll get back to you in 1-2 business days.";
             <p class="text-sm text-neutral-600 dark:text-neutral-400">
               {formSubTitle}
             </p>
+            <p
+              data-form-status
+              class="mt-3 hidden rounded-lg border px-4 py-3 text-left text-sm dark:bg-brand-950/30"
+            >
+            </p>
           </div>
         </form>
       </div>
@@ -81,42 +111,124 @@ const formSubTitle: string = "We'll get back to you in 1-2 business days.";
       }
       <div class="divide-y divide-neutral-300 dark:divide-neutral-700">
         <ContactIconBlock
-          heading="Knowledgebase"
-          content="Browse through all of our knowledgebase articles."
+          heading="Service area"
+          content="Serving Metro Denver through Colorado Springs."
           isLinkVisible={true}
-          linkTitle="Visit guides & tutorials"
-          linkURL="#"
+          linkTitle="See service area"
+          linkURL="/#service-area"
           isArrowVisible={true}
           ><Icon name="question" />
         </ContactIconBlock>
 
         <ContactIconBlock
-          heading="FAQ"
-          content="Explore our FAQ for quick, clear answers to common queries."
+          heading="Call us"
+          content="Talk through your project scope or timing directly."
           isLinkVisible={true}
-          linkTitle="Visit FAQ"
-          linkURL="#"
+          linkTitle={COMPANY.phone}
+          linkURL={COMPANY.phoneHref}
           isArrowVisible={true}
           ><Icon name="chatBubble" />
         </ContactIconBlock>
 
         <ContactIconBlock
-          heading="Visit our office"
-          content="UK ScrewFast"
+          heading="Primary service hub"
+          content="Littleton, Colorado"
           isAddressVisible={true}
-          addressContent="72 Union Terrace, E10 4PE London"
+          addressContent="Metro Denver to Colorado Springs"
           ><Icon name="mapPin" />
         </ContactIconBlock>
 
         <ContactIconBlock
           heading="Contact us by email"
-          content="Prefer the written word? Drop us an email at"
+          content="Prefer email? Reach us at"
           isLinkVisible={true}
-          linkTitle="support@screwfast.uk"
-          linkURL="#"
+          linkTitle={COMPANY.email}
+          linkURL={`mailto:${COMPANY.email}`}
           ><Icon name="envelopeOpen" />
         </ContactIconBlock>
       </div>
     </div>
   </div>
 </section>
+
+<script is:inline>
+  const initContactForms = () => {
+    document.querySelectorAll('[data-contact-form]').forEach(formElement => {
+      const form = formElement;
+      if (!(form instanceof HTMLFormElement) || form.dataset.initialized === 'true') {
+        return;
+      }
+
+      form.dataset.initialized = 'true';
+      const status = form.querySelector('[data-form-status]');
+
+      form.addEventListener('submit', event => {
+        event.preventDefault();
+
+        if (!form.reportValidity()) {
+          return;
+        }
+
+        const formData = new FormData(form);
+        const firstName = `${formData.get('firstName') || ''}`.trim();
+        const lastName = `${formData.get('lastName') || ''}`.trim();
+        const email = `${formData.get('email') || ''}`.trim();
+        const fullName = [firstName, lastName].filter(Boolean).join(' ');
+        const subjectPrefix = form.dataset.subjectPrefix || 'Project request';
+        const endpoint = form.dataset.endpoint || '';
+        const successMessage =
+          form.dataset.successMessage ||
+          'Your request has been sent successfully.';
+        const fallbackMessage =
+          form.dataset.fallbackMessage ||
+          'We could not send your request right now.';
+
+        formData.set('_subject', `${subjectPrefix} - ${fullName}`);
+        formData.set('_replyto', email);
+        formData.set('_cc', '');
+        formData.set('name', fullName);
+        formData.set('page', window.location.href);
+
+        const setStatus = (message, isError = false) => {
+          if (!(status instanceof HTMLElement)) return;
+          status.textContent = message;
+          status.classList.remove('hidden');
+          status.className =
+            `mt-3 rounded-lg border px-4 py-3 text-left text-sm ${
+              isError
+                ? 'border-red-200 bg-red-50 text-red-900 dark:border-red-900 dark:bg-red-950/30 dark:text-red-100'
+                : 'border-brand-200 bg-brand-50 text-brand-900 dark:border-brand-900 dark:bg-brand-950/30 dark:text-brand-100'
+            }`;
+        };
+
+        fetch(endpoint, {
+          method: 'POST',
+          headers: {
+            Accept: 'application/json',
+          },
+          body: formData,
+        })
+          .then(async response => {
+            if (!response.ok) {
+              throw new Error('Request failed');
+            }
+            const data = await response.json();
+            if (data.success !== 'true' && data.success !== true) {
+              throw new Error('Submission failed');
+            }
+            form.reset();
+            setStatus(successMessage);
+          })
+          .catch(() => {
+            setStatus(fallbackMessage, true);
+          });
+      });
+    });
+  };
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initContactForms);
+  } else {
+    initContactForms();
+  }
+</script>

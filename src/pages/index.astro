@@ -4,8 +4,9 @@ import HeroSection from '@components/sections/landing/HeroSection.astro';
 import FeaturesGeneral from '@components/sections/features/FeaturesGeneral.astro';
 import ContactSection from '@components/sections/misc/ContactSection.astro';
 import Icon from '@components/ui/icons/Icon.astro';
-import heroImage from '@images/hero-image.avif';
+import Hero1Image from '@images/hero_1.png';
 import featureImage from '@images/features-image.avif';
+import clearBGAspensImage from '@images/clear_bg_aspens.png';
 
 const keyServiceFeatures = [
   {
@@ -87,24 +88,34 @@ const faqItems = [
   title="Hawthorn Scapes | Colorado Landscaping"
   customDescription="Professional landscaping, xeriscaping, hardscaping, and maintenance services across Metro Denver to Colorado Springs."
 >
+  {/* Full logo centered between navbar and hero */}
+  <div class="flex justify-center py-8 sm:py-12 md:py-16">
+    <img
+      src="/full-logo.svg"
+      alt="Hawthorn Scapes Full Logo"
+      class="h-24 w-auto sm:h-32 md:h-44 lg:h-52 xl:h-60"
+      loading="eager"
+    />
+  </div>
+
   <HeroSection
-    title="Hawthorn Scapes for the Front Range."
-    subTitle="Professional landscaping and xeriscaping tailored to the Colorado climate. Serving Littleton to Colorado Springs."
+    title="Hawthorn Scapes"
+    subTitle="Expert landscaping that handles it all — mowing, planting, irrigation, hardscapes, and more — built for Colorado’s climate. Serving Denver to Colorado Springs.
+"
     primaryBtn="Get a Quote"
     primaryBtnURL="#contact"
     secondaryBtn="View Services"
-    secondaryBtnURL="#services"
+    secondaryBtnURL="/services"
     withReview={false}
-    src={heroImage}
-    alt="Colorado landscape with stone, grasses, and mountain backdrop"
+    src={Hero1Image}
+    alt="Colorado xeriscape garden with rocks and native plants"
   />
 
   <div id="services">
     <FeaturesGeneral
       title="Services for Colorado Landscapes"
-      subTitle="Three core service groups: maintenance, installations, and outdoor structures designed for the Front Range climate."
-      src={featureImage}
-      alt="Stone and native planting detail"
+      subTitle="Three core service groups: maintenance, installations, and outdoor structures designed for Colorado’s climate."
+
       features={keyServiceFeatures}
     />
   </div>
@@ -145,7 +156,7 @@ const faqItems = [
         Service Area
       </p>
       <h2 class="mt-4 text-3xl font-bold text-neutral-900 dark:text-neutral-100">
-        Serving the Front Range from Littleton to Colorado Springs
+        Serving the Colorado from Denver to Colorado Springs
       </h2>
       <p class="mt-4 text-base text-neutral-600 dark:text-neutral-400">
         We focus on regional landscape systems that perform in Colorado's seasonal climate with water-wise planning and resilient installations.

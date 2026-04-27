@@ -43,11 +43,6 @@
     { "source": "/blog/:id", "destination": "/services", "permanent": true },
     { "source": "/products", "destination": "/services", "permanent": true },
     { "source": "/products/:id", "destination": "/services", "permanent": true },
-    { "source": "/insights/:id", "destination": "/services", "permanent": true },
-    { "source": "/fr/blog", "destination": "/fr/services", "permanent": true },
-    { "source": "/fr/blog/:id", "destination": "/fr/services", "permanent": true },
-    { "source": "/fr/products", "destination": "/fr/services", "permanent": true },
-    { "source": "/fr/products/:id", "destination": "/fr/services", "permanent": true },
-    { "source": "/fr/insights/:id", "destination": "/fr/services", "permanent": true }
+    { "source": "/insights/:id", "destination": "/services", "permanent": true }
   ]
 }

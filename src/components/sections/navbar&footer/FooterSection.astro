@@ -1,19 +1,14 @@
 ---
 import enStrings from '@utils/navigation.ts';
-import frStrings from '@utils/fr/navigation.ts';
 import BrandLogo from '@components/BrandLogo.astro';
 import { COMPANY } from '@data/constants';
 
-// Select the correct translation based on the page's lang prop:
-const strings = Astro.currentLocale === 'fr' ? frStrings : enStrings;
+// Use English strings only
+const strings = enStrings;
 
 // Define the variables that will be used in this component
-const sectionThreeTitle: string =
-  Astro.currentLocale === 'fr' ? 'Zone desservie' : 'Service Area';
-const sectionThreeContent: string =
-  Astro.currentLocale === 'fr'
-    ? 'Metro Denver, Littleton, Centennial, Highlands Ranch, Castle Rock et Colorado Springs.'
-    : 'Metro Denver, Littleton, Centennial, Highlands Ranch, Castle Rock, and Colorado Springs.';
+const sectionThreeTitle: string = 'Service Area';
+const sectionThreeContent: string = 'Metro Denver, Littleton, Centennial, Highlands Ranch, Castle Rock, and Colorado Springs.';
 ---
 
 <footer class="w-full bg-brand-50 dark:bg-neutral-900">

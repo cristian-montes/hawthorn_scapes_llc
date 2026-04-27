@@ -53,8 +53,10 @@ const formSubTitle: string =
           data-fallback-message={`We could not send the form right now. Email ${COMPANY.email} or call ${COMPANY.phone}.`}
         >
           <input type="hidden" name="_subject" value="Hawthorn Scapes estimate request" />
-          <input type="hidden" name="_captcha" value="false" />
+          <input type="hidden" name="_next" value="https://hawthornscapes.com/?contact=success" />
+          <input type="hidden" name="_captcha" value="true" />
           <input type="hidden" name="_template" value="table" />
+          <input type="hidden" name="_autoresponse" value="Thanks for reaching out! We will review your request and reply shortly." />
           <input type="text" name="_honey" class="hidden" tabindex="-1" autocomplete="off" />
           <div class="grid gap-4">
             <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">

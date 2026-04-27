@@ -1,7 +1,7 @@
 ---
 const {
   label = 'Search',
-  title = Astro.currentLocale === 'fr' ? "S'abonner" : 'Subscribe',
+  title = 'Subscribe',
   id = 'footer-input',
 } = Astro.props;
 
@@ -12,7 +12,7 @@ interface Props {
 }
 
 const placeholder =
-  Astro.currentLocale === 'fr' ? 'Entrez votre email' : 'Enter your email';
+  'Enter your email';
 ---
 
 <div

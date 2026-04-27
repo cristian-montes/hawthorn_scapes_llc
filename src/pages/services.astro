@@ -7,10 +7,16 @@ import RightSection from '@components/ui/blocks/RightSection.astro';
 import FeaturesStats from '@components/sections/features/FeaturesStats.astro';
 
 // Import necessary images
-import heroImage from '@images/hero-image.avif';
-import featureImage from '@images/features-image.avif';
-import beforeAfter from '@images/before-after.avif';
-import aerialView from '@images/aerial-view.avif';
+// import heroImage from '@images/hero-image.avif';
+// import featureImage from '@images/features-image.avif';
+import universalXeriscapeImage from '@images/universal_xeriscape.png';
+import modernBareXeriscapeImage from '@images/modern_bare_xeriscape.png';
+import cleanYardImage from '@images/clean_front_yard.png';
+import hardScapeImage from '@images/hard_scape.png';
+import freshLwanImage from '@images/fresh_lawn.jpg';
+import fencePergolaImage from '@images/fence_pergola.png';
+import railFenceImage from '@images/rail_fence.png';
+import treeInstallationImage from '@images/tree_installation.png';
 import { SITE } from '@data/constants';
 
 interface Article {
@@ -36,17 +42,17 @@ const articles: Article[] = [
     subTitle:
       'Reliable mowing, edging, trimming, and seasonal cleanups that keep your property sharp through every Colorado season.',
     single: false,
-    imgOne: heroImage,
-    imgOneAlt: 'Healthy Colorado lawn with clean edges, planting beds, and stone accents.',
-    imgTwo: aerialView,
+    imgOne: cleanYardImage,
+    imgOneAlt: 'Well-maintained lawn with stone edging and lush plantings.',
+    imgTwo: freshLwanImage,
     imgTwoAlt: 'Aerial view of a landscaped residential property with maintained outdoor areas.',
   },
   {
     isRightSection: false,
-    title: 'Tree, Shrub, and Bed Installation',
+    title: 'Tree, Shrub, Flower and Planting Bed Installation',
     subTitle:
       'We install Colorado-hardy trees, shrubs, and planting beds designed for local altitude, soil, and water constraints.',
-    img: featureImage,
+    img: treeInstallationImage,
     imgAlt: 'Fresh planting bed with native grasses, stone edging, and layered landscape texture.',
     btnExists: true,
     btnTitle: 'Request an Estimate',
@@ -58,9 +64,9 @@ const articles: Article[] = [
     subTitle:
       'Low-maintenance xeriscape designs built to reduce water usage while maintaining clean, modern curb appeal.',
     single: false,
-    imgOne: featureImage,
+    imgOne: universalXeriscapeImage,
     imgOneAlt: 'Water-wise planting detail with stone mulch and drought-tolerant grasses.',
-    imgTwo: heroImage,
+    imgTwo: modernBareXeriscapeImage,
     imgTwoAlt: 'Colorado xeriscape front yard with layered stone, grasses, and mountain backdrop.',
   },
   {
@@ -68,7 +74,7 @@ const articles: Article[] = [
     title: 'Hardscape & Retaining Walls',
     subTitle:
       'Retaining walls and hardscape features engineered for slope management, drainage performance, and long-term durability.',
-    img: beforeAfter,
+    img: hardScapeImage,
     imgAlt:
       'Landscape transformation showing installed stonework, planting beds, and finished outdoor structure details.',
   },
@@ -78,9 +84,9 @@ const articles: Article[] = [
     subTitle:
       'Residential fencing and structural landscape elements installed with an emphasis on quality, safety, and lasting value.',
     single: false,
-    imgOne: aerialView,
+    imgOne: fencePergolaImage,
     imgOneAlt: 'Residential property layout showing defined outdoor zones and structured landscape lines.',
-    imgTwo: heroImage,
+    imgTwo: railFenceImage,
     imgTwoAlt: 'Finished Front Range landscape with stone accents and layered planting.',
     btnExists: true,
     btnTitle: 'Start Your Project',

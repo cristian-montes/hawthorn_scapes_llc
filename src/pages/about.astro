@@ -1,0 +1,166 @@
+---
+import MainLayout from '@/layouts/MainLayout.astro';
+import MainSection from '@components/ui/blocks/MainSection.astro';
+import Icon from '@components/ui/icons/Icon.astro';
+import { SITE, COMPANY } from '@data/constants';
+
+const values = [
+  {
+    title: 'Colorado-First Design',
+    description:
+      "Every landscape is built for Colorado's climate, altitude, and soil.",
+    icon: 'verified',
+  },
+  {
+    title: 'Water Wise',
+    description:
+      'Xeriscaping and sustainable practices reduce water use without sacrificing beauty or function.',
+    icon: 'tools',
+  },
+  {
+    title: 'Quality Craftsmanship',
+    description:
+      'Durability, precision, and attention to detail define every project from consultation to completion.',
+    icon: 'house',
+  },
+  {
+    title: 'Reliability',
+    description:
+      "One team, clear communication, consistent care. We show up and deliver on every commitment.",
+    icon: 'verified',
+  },
+];
+
+const whyUs = [
+  {
+    title: 'Local Expertise',
+    description: 'Over a decade of Colorado landscaping knowledge applied to every project.',
+  },
+  {
+    title: 'Integrated Services',
+    description:
+      'Maintenance, installation, xeriscaping, and hardscapes—all from the same trusted team.',
+  },
+  {
+    title: 'Sustainable Focus',
+    description: 'We build landscapes that thrive with Colorado water availability and climate.',
+  },
+];
+---
+
+<MainLayout
+  title={`About | ${SITE.title}`}
+  customDescription="Learn about Hawthorn Scapes: Colorado landscaping experts serving with sustainable, durable landscape design and installation."
+  structuredData={{
+    '@context': 'https://schema.org',
+    '@type': 'WebPage',
+    '@id': 'https://hawthornscapes.com/about',
+    url: 'https://hawthornscapes.com/about',
+    name: `About | ${SITE.title}`,
+    description:
+      'Learn about Hawthorn Scapes: Colorado landscaping experts at your service.',
+    isPartOf: {
+      '@type': 'WebSite',
+      url: 'https://hawthornscapes.com',
+      name: SITE.title,
+      description: SITE.description,
+    },
+  }}
+>
+  {/* Main intro section */}
+  <MainSection
+    title="About Hawthorn Scapes"
+    subTitle="We're a Colorado-based landscaping team built on reliability, craftsmanship, and a deep understanding of our native landscapes. From Denver to Colorado Springs, we've been turning outdoor spaces into thriving, resilient yards."
+  />
+
+  {/* Our Story / Mission Section */}
+  <section class="mx-auto max-w-[85rem] px-4 py-16 sm:px-6 lg:px-8">
+    <div class="grid gap-12 lg:grid-cols-2 lg:items-center">
+      <div>
+        <h2 class="text-3xl font-bold text-neutral-900 dark:text-neutral-100">
+          Built for Colorado
+        </h2>
+        <p class="mt-4 text-lg text-neutral-600 dark:text-neutral-400">
+          Hawthorn Scapes started with a simple idea: landscapes should work <em>for</em> Colorado's
+          climate, not against it. That means water-efficient designs, native and adapted plants,
+          durable hardscapes that handle seasonal changes, and maintenance schedules that keep
+          properties sharp year-round.
+        </p>
+        <p class="mt-4 text-lg text-neutral-600 dark:text-neutral-400">
+          We bring together expertise in xeriscaping, landscape installation, hardscape engineering,
+          and ongoing maintenance. Whether you need a fresh lawn, a low-water garden, or a complete
+          outdoor transformation, one team handles it all—from your first consultation to long-term
+          care.
+        </p>
+      </div>
+
+      <div class="space-y-6">
+        {whyUs.map(item => (
+          <div class="rounded-2xl border border-brand-100/50 bg-brand-50 p-6 dark:border-neutral-800 dark:bg-neutral-900/50">
+            <h3 class="text-lg font-semibold text-neutral-900 dark:text-neutral-100">
+              {item.title}
+            </h3>
+            <p class="mt-2 text-sm text-neutral-600 dark:text-neutral-400">{item.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  {/* Our Values Section */}
+  <section class="mx-auto max-w-[85rem] px-4 py-16 sm:px-6 lg:px-8">
+    <div class="mx-auto max-w-3xl text-center">
+      <h2 class="text-3xl font-bold text-neutral-900 dark:text-neutral-100">Our Values</h2>
+      <p class="mt-4 text-lg text-neutral-600 dark:text-neutral-400">
+        These principles guide every project, every conversation, and every decision we make.
+      </p>
+    </div>
+
+    <div class="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+      {values.map(value => (
+        <div class="space-y-4">
+          <div class="inline-flex h-12 w-12 items-center justify-center rounded-xl bg-brand-100 text-brand-700 dark:bg-brand-900 dark:text-brand-300">
+            <Icon name={value.icon} />
+          </div>
+          <h3 class="text-lg font-semibold text-neutral-900 dark:text-neutral-100">
+            {value.title}
+          </h3>
+          <p class="text-sm text-neutral-600 dark:text-neutral-400">{value.description}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  {/* Service Areas & Contact CTA */}
+  <section class="mx-auto max-w-[85rem] px-4 py-16 sm:px-6 lg:px-8">
+    <div class="rounded-3xl border border-brand-100/50 bg-gradient-to-br from-brand-50 to-transparent p-8 dark:border-neutral-800 dark:from-neutral-900/50 dark:to-transparent">
+      <div class="space-y-6">
+        <div>
+          <h2 class="text-2xl font-bold text-neutral-900 dark:text-neutral-100">
+            Serving Colorado
+          </h2>
+          <p class="mt-2 text-neutral-600 dark:text-neutral-400">
+            From Littleton and Highlands Ranch in the south, to Denver metro, Castle Rock,
+            Centennial, and down to Colorado Springs. We're ready to
+            work on your landscape.
+          </p>
+        </div>
+
+        <div class="flex gap-4">
+          <a
+            href="/#contact"
+            class="inline-flex items-center justify-center rounded-lg bg-brand-600 px-6 py-3 font-semibold text-white transition duration-300 hover:bg-brand-700 dark:bg-brand-700 dark:hover:bg-brand-600"
+          >
+            Start Your Project
+          </a>
+          <a
+            href={`tel:${COMPANY.phoneHref.replace('tel:', '')}`}
+            class="inline-flex items-center justify-center rounded-lg border border-brand-600 px-6 py-3 font-semibold text-brand-600 transition duration-300 hover:bg-brand-50 dark:border-brand-400 dark:text-brand-400 dark:hover:bg-neutral-900"
+          >
+            Call Us
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</MainLayout>

@@ -15,6 +15,7 @@ const subTitle: string =
 const formTitle: string = 'Request an estimate';
 const formSubTitle: string = `Send your project details directly to ${COMPANY.email}.`;
 const web3formsAccessKey = import.meta.env.WEB3FORMS_ACCESS_KEY;
+const recaptchaSiteKey = import.meta.env.PUBLIC_RECAPTCHA_SITE_KEY;
 ---
 
 {/* Contact Us */}
@@ -96,6 +97,11 @@ const web3formsAccessKey = import.meta.env.WEB3FORMS_ACCESS_KEY;
             class="hidden"
             tabindex="-1"
             autocomplete="off"
+          />
+          <input
+            type="hidden"
+            name="g-recaptcha-response"
+            id="g-recaptcha-response"
           />
           <div class="grid gap-4">
             <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
@@ -197,7 +203,11 @@ const web3formsAccessKey = import.meta.env.WEB3FORMS_ACCESS_KEY;
   </div>
 </section>
 
-<script>
+<script
+  src={`https://www.google.com/recaptcha/api.js?render=${recaptchaSiteKey}`}
+></script>
+
+<script define:vars={{ recaptchaSiteKey }}>
   // Form submission handler
   document
     .getElementById('contact-form')
@@ -218,6 +228,16 @@ const web3formsAccessKey = import.meta.env.WEB3FORMS_ACCESS_KEY;
       loadingSpinner.classList.remove('hidden');
       loadingSpinner.classList.add('inline-block');
       messageContainer.classList.add('hidden');
+
+      // Get reCAPTCHA token
+      try {
+        const token = await grecaptcha.execute(recaptchaSiteKey, {
+          action: 'submit',
+        });
+        document.getElementById('g-recaptcha-response').value = token;
+      } catch (err) {
+        console.error('reCAPTCHA error:', err);
+      }
 
       const formData = new FormData(this);
 

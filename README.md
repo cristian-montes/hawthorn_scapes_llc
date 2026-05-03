@@ -28,6 +28,18 @@ Install dependencies:
 npm install
 ```
 
+Create a local `.env` file from the example:
+
+```bash
+cp .env.example .env
+```
+
+Then set:
+
+```text
+WEB3FORMS_ACCESS_KEY=your-web3forms-access-key
+```
+
 Start the local dev server:
 
 ```bash
@@ -85,6 +97,7 @@ Formats the project with Prettier.
 - The retired blog, product, and insight routes redirect visitors to the active services page.
 - The site uses Astro, Tailwind CSS, Preline, Lenis, and Astro Compressor.
 - Service-area copy should stay consistent across the homepage, footer, contact page, FAQ data, and structured data.
+- The contact form uses Web3Forms. Set `WEB3FORMS_ACCESS_KEY` locally in `.env` and in Netlify site environment variables.
 
 ## Troubleshooting
 

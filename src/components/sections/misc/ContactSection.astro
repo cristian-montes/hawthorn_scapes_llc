@@ -15,6 +15,7 @@ const subTitle: string =
   'Tell us about your property goals and we will follow up with the right next step for your project.';
 const formTitle: string = 'Request an estimate';
 const formSubTitle: string = `Send your project details directly to ${COMPANY.email}.`;
+const web3formsAccessKey = import.meta.env.WEB3FORMS_ACCESS_KEY;
 ---
 
 {/* Contact Us */}
@@ -42,31 +43,26 @@ const formSubTitle: string = `Send your project details directly to ${COMPANY.em
           /* Form for user input with various input fields.-->
         {/* Each field utilizes a different input component for the specific type of input (text, email, phone, and textarea)*/
         }
-        <form action={`https://formsubmit.co/${COMPANY.email}`} method="POST">
+        <form action="https://api.web3forms.com/submit" method="POST">
+          <input type="hidden" name="access_key" value={web3formsAccessKey} />
           <input
             type="hidden"
-            name="_subject"
+            name="subject"
             value="Hawthorn Scapes estimate request"
           />
           <input
             type="hidden"
-            name="_next"
+            name="from_name"
+            value="Hawthorn Scapes Website"
+          />
+          <input
+            type="hidden"
+            name="redirect"
             value="https://hawthornscapes.com/?contact=success"
           />
           <input
-            type="hidden"
-            name="_url"
-            value="https://hawthornscapes.com/#contact"
-          />
-          <input type="hidden" name="_template" value="table" />
-          <input
-            type="hidden"
-            name="_autoresponse"
-            value="Thanks for reaching out! We will review your request and reply shortly."
-          />
-          <input
-            type="text"
-            name="_honey"
+            type="checkbox"
+            name="botcheck"
             class="hidden"
             tabindex="-1"
             autocomplete="off"

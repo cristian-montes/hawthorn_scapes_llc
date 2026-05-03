@@ -2,9 +2,9 @@ export const SITE = {
   title: 'Hawthorn Scapes | Expert Landscaping & Xeriscaping in Colorado',
   tagline: "Colorado's Premier Landscaping",
   description:
-    'Professional lawn care, hardscapes, and water-efficient xeriscaping for the Boulder Area, Littleton, Castle Rock, and Highlands Ranch.',
+    'Professional lawn care, hardscapes, and water-efficient xeriscaping for Boulder, Littleton, Castle Rock, and Highlands Ranch.',
   description_short:
-    'Professional landscaping, xeriscaping, and hardscape services from the Boulder Area to Colorado Springs.',
+    'Professional landscaping, xeriscaping, and hardscape services from Boulder to Colorado Springs.',
   url: 'https://hawthornscapes.com',
   author: 'Hawthorn Scapes LLC',
 };

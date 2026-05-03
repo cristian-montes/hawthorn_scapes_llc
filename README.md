@@ -1,6 +1,6 @@
 # Hawthorn Scapes Website
 
-Astro website for Hawthorn Scapes LLC, a Colorado landscaping, xeriscaping, hardscape, fencing, and maintenance company serving the Boulder Area through Colorado Springs.
+Astro website for Hawthorn Scapes LLC, a Colorado landscaping, xeriscaping, hardscape, fencing, and maintenance company serving Boulder through Colorado Springs.
 
 ## Requirements
 

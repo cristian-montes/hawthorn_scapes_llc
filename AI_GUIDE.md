@@ -5,7 +5,7 @@ This is an Astro + Tailwind CSS site for Hawthorn Scapes LLC.
 ## Site Focus
 
 - Landscaping, xeriscaping, lawn maintenance, hardscapes, retaining walls, fencing, outdoor structures, and planting services.
-- Primary service coverage: Boulder Area through Colorado Springs, including Denver, Littleton, Centennial, Highlands Ranch, and Castle Rock.
+- Primary service coverage: Boulder through Colorado Springs, including Denver, Littleton, Centennial, Highlands Ranch, and Castle Rock.
 - The active user-facing pages are home, about, services, contact, and redirect pages for retired template routes.
 
 ## Development

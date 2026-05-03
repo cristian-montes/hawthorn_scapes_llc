@@ -13,6 +13,6 @@ contents:
   [
     'Un entretien regulier garde le paysage sain, propre et plus facile a gerer.',
     "Un bon calendrier tient compte de la croissance du printemps, de la chaleur estivale, du nettoyage d'automne et de la preparation hivernale.",
-    'Hawthorn Scapes accompagne les proprietes de la Boulder Area jusqu a Colorado Springs.',
+    'Hawthorn Scapes accompagne les proprietes de la Boulder jusqu a Colorado Springs.',
   ]
 ---

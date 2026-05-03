@@ -1,6 +1,6 @@
 # Hawthorn Scapes Web & SEO Strategy
 
-This strategy is tailored for Hawthorn Scapes, LLC to deliver a fast, professional website with minimal maintenance and strong local SEO coverage from the Boulder Area to Colorado Springs.
+This strategy is tailored for Hawthorn Scapes, LLC to deliver a fast, professional website with minimal maintenance and strong local SEO coverage from Boulder to Colorado Springs.
 
 ## Tech Stack
 

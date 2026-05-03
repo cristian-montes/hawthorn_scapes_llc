@@ -38,7 +38,7 @@ export const servicesData = [
   {
     title: 'Service Area',
     description:
-      'Serving the Boulder Area through Colorado Springs with reliable landscape care and installs.',
+      'Serving Boulderthrough Colorado Springs with reliable landscape care and installs.',
     icon: 'community',
     url: '/#service-area',
   },

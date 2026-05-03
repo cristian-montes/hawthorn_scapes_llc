@@ -1,20 +1,19 @@
 ---
-title: 'Simplify Procurement and Stay Within Budget with ScrewFast'
-description: 'Affordable, durable tools for efficient construction projects'
-author: 'Olga Zabegina'
-role: 'Strategic Marketing Manager'
+title: 'Planning a Landscape Project Without Guesswork'
+description: 'How clear scopes and practical estimates help Colorado landscape projects stay on track.'
+author: 'Hawthorn Scapes'
+role: 'Colorado Landscaping Team'
 authorImage: '@/images/icon.png'
 authorImageAlt: 'Hawthorn Scapes brand mark'
 pubDate: 2024-02-18
 cardImage: '@/images/features-image.avif'
 cardImageAlt: 'Water-wise planting bed with stone edging and layered shrubs'
 readTime: 3
-tags: ['procurement', 'affordable', 'efficiency']
+tags: ['planning', 'estimate', 'landscaping']
 contents:
   [
-    "Managing a construction project can be overwhelming, especially when it comes to procurement. That's why ScrewFast is committed to simplifying the process and keeping your projects within budget.",
-    'With our line of affordable tools and equipment, you can find everything you need without breaking the bank. Our user-centric design ensures that our products are easy to use, saving you time and frustration on the job site.',
-    "But affordability doesn't mean sacrificing quality. ScrewFast products are built to last, providing reliable performance and durability when you need it most. And with our comprehensive documentation and tutorials, you can integrate our products seamlessly into your workflow, maximizing efficiency and productivity.",
-    "Whether you're a DIY enthusiast or a seasoned contractor, ScrewFast has the solutions you need to succeed. Experience the difference for yourself and see why ScrewFast is the trusted choice for hardware and construction needs.",
+    'A strong landscape project starts with a clear walkthrough, a realistic scope, and priorities that match the property. That upfront clarity helps avoid surprises once work begins.',
+    'Whether the project involves planting, xeriscaping, retaining walls, fencing, or maintenance, the best plan connects design choices to long-term care.',
+    'Hawthorn Scapes focuses on practical next steps, clear communication, and durable results for Colorado properties.',
   ]
 ---

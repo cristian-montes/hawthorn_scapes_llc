@@ -16,7 +16,8 @@ export const servicesData = [
   },
   {
     title: 'Hardscape & Retaining Walls',
-    description: 'Add structure, drainage control, and durable outdoor spaces with clean installation work.',
+    description:
+      'Add structure, drainage control, and durable outdoor spaces with clean installation work.',
     icon: 'rocket',
     url: '/services',
   },
@@ -36,7 +37,8 @@ export const servicesData = [
   },
   {
     title: 'Service Area',
-    description: 'Serving Metro Denver through Colorado Springs with reliable landscape care and installs.',
+    description:
+      'Serving the Boulder Area through Colorado Springs with reliable landscape care and installs.',
     icon: 'community',
     url: '/#service-area',
   },

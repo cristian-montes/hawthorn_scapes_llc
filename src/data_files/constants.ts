@@ -1,10 +1,10 @@
 export const SITE = {
-  title: 'Hawthorn Scapes | Expert Landscaping & Xeriscaping in South Metro Denver',
+  title: 'Hawthorn Scapes | Expert Landscaping & Xeriscaping in Colorado',
   tagline: "Colorado's Premier Landscaping",
   description:
-    'Professional lawn care, hardscapes, and water-efficient xeriscaping for Littleton, Castle Rock, and Highlands Ranch.',
+    'Professional lawn care, hardscapes, and water-efficient xeriscaping for the Boulder Area, Littleton, Castle Rock, and Highlands Ranch.',
   description_short:
-    'Professional landscaping, xeriscaping, and hardscape services across South Metro Denver.',
+    'Professional landscaping, xeriscaping, and hardscape services from the Boulder Area to Colorado Springs.',
   url: 'https://hawthornscapes.com',
   author: 'Hawthorn Scapes LLC',
 };
@@ -16,7 +16,6 @@ export const COMPANY = {
   phoneHref: 'tel:7208491565',
   copyright: '© 2026 Hawthorn Scapes LLC. All rights reserved.',
 };
-
 
 export const SEO = {
   title: SITE.title,

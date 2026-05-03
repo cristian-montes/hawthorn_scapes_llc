@@ -12,7 +12,7 @@ const values = [
     icon: 'verified',
   },
   {
-    title: 'Water Wise',
+    title: 'Water-Wise',
     description:
       'Xeriscaping and sustainable practices reduce water use without sacrificing beauty or function.',
     icon: 'tools',
@@ -26,7 +26,7 @@ const values = [
   {
     title: 'Reliability',
     description:
-      "One team, clear communication, consistent care. We show up and deliver on every commitment.",
+      'One team, clear communication, consistent care. We show up and deliver on every commitment.',
     icon: 'verified',
   },
 ];
@@ -34,7 +34,8 @@ const values = [
 const whyUs = [
   {
     title: 'Local Expertise',
-    description: 'Over a decade of Colorado landscaping knowledge applied to every project.',
+    description:
+      'Over a decade of Colorado landscaping knowledge applied to every project.',
   },
   {
     title: 'Integrated Services',
@@ -43,7 +44,8 @@ const whyUs = [
   },
   {
     title: 'Sustainable Focus',
-    description: 'We build landscapes that thrive with Colorado water availability and climate.',
+    description:
+      'We build landscapes that thrive with Colorado water availability and climate.',
   },
 ];
 ---
@@ -70,7 +72,7 @@ const whyUs = [
   {/* Main intro section */}
   <MainSection
     title="About Hawthorn Scapes"
-    subTitle="We're a Colorado-based landscaping team built on reliability, craftsmanship, and a deep understanding of our native landscapes. From Denver to Colorado Springs, we've been turning outdoor spaces into thriving, resilient yards."
+    subTitle="We're a Colorado-based landscaping team built on reliability, craftsmanship, and a deep understanding of our native landscapes. From the Boulder Area to Colorado Springs, we turn outdoor spaces into thriving, resilient yards."
   />
 
   {/* Our Story / Mission Section */}
@@ -81,28 +83,34 @@ const whyUs = [
           Built for Colorado
         </h2>
         <p class="mt-4 text-lg text-neutral-600 dark:text-neutral-400">
-          Hawthorn Scapes started with a simple idea: landscapes should work <em>for</em> Colorado's
-          climate, not against it. That means water-efficient designs, native and adapted plants,
-          durable hardscapes that handle seasonal changes, and maintenance schedules that keep
-          properties sharp year-round.
+          Hawthorn Scapes started with a simple idea: landscapes should work <em
+            >for</em
+          > Colorado's climate, not against it. That means water-efficient designs,
+          native and adapted plants, durable hardscapes that handle seasonal changes,
+          and maintenance schedules that keep properties sharp year-round.
         </p>
         <p class="mt-4 text-lg text-neutral-600 dark:text-neutral-400">
-          We bring together expertise in xeriscaping, landscape installation, hardscape engineering,
-          and ongoing maintenance. Whether you need a fresh lawn, a low-water garden, or a complete
-          outdoor transformation, one team handles it all—from your first consultation to long-term
+          We bring together expertise in xeriscaping, landscape installation,
+          hardscape engineering, and ongoing maintenance. Whether you need a
+          fresh lawn, a low-water garden, or a complete outdoor transformation,
+          one team handles it all—from your first consultation to long-term
           care.
         </p>
       </div>
 
       <div class="space-y-6">
-        {whyUs.map(item => (
-          <div class="rounded-2xl border border-brand-100/50 bg-brand-50 p-6 dark:border-neutral-800 dark:bg-neutral-900/50">
-            <h3 class="text-lg font-semibold text-neutral-900 dark:text-neutral-100">
-              {item.title}
-            </h3>
-            <p class="mt-2 text-sm text-neutral-600 dark:text-neutral-400">{item.description}</p>
-          </div>
-        ))}
+        {
+          whyUs.map(item => (
+            <div class="border-brand-100/50 bg-brand-50 rounded-2xl border p-6 dark:border-neutral-800 dark:bg-neutral-900/50">
+              <h3 class="text-lg font-semibold text-neutral-900 dark:text-neutral-100">
+                {item.title}
+              </h3>
+              <p class="mt-2 text-sm text-neutral-600 dark:text-neutral-400">
+                {item.description}
+              </p>
+            </div>
+          ))
+        }
       </div>
     </div>
   </section>
@@ -110,38 +118,47 @@ const whyUs = [
   {/* Our Values Section */}
   <section class="mx-auto max-w-[85rem] px-4 py-16 sm:px-6 lg:px-8">
     <div class="mx-auto max-w-3xl text-center">
-      <h2 class="text-3xl font-bold text-neutral-900 dark:text-neutral-100">Our Values</h2>
+      <h2 class="text-3xl font-bold text-neutral-900 dark:text-neutral-100">
+        Our Values
+      </h2>
       <p class="mt-4 text-lg text-neutral-600 dark:text-neutral-400">
-        These principles guide every project, every conversation, and every decision we make.
+        These principles guide every project, every conversation, and every
+        decision we make.
       </p>
     </div>
 
     <div class="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
-      {values.map(value => (
-        <div class="space-y-4">
-          <div class="inline-flex h-12 w-12 items-center justify-center rounded-xl bg-brand-100 text-brand-700 dark:bg-brand-900 dark:text-brand-300">
-            <Icon name={value.icon} />
+      {
+        values.map(value => (
+          <div class="space-y-4">
+            <div class="bg-brand-100 text-brand-700 dark:bg-brand-900 dark:text-brand-300 inline-flex h-12 w-12 items-center justify-center rounded-xl">
+              <Icon name={value.icon} />
+            </div>
+            <h3 class="text-lg font-semibold text-neutral-900 dark:text-neutral-100">
+              {value.title}
+            </h3>
+            <p class="text-sm text-neutral-600 dark:text-neutral-400">
+              {value.description}
+            </p>
           </div>
-          <h3 class="text-lg font-semibold text-neutral-900 dark:text-neutral-100">
-            {value.title}
-          </h3>
-          <p class="text-sm text-neutral-600 dark:text-neutral-400">{value.description}</p>
-        </div>
-      ))}
+        ))
+      }
     </div>
   </section>
 
   {/* Service Areas & Contact CTA */}
   <section class="mx-auto max-w-[85rem] px-4 py-16 sm:px-6 lg:px-8">
-    <div class="rounded-3xl border border-brand-100/50 bg-gradient-to-br from-brand-50 to-transparent p-8 dark:border-neutral-800 dark:from-neutral-900/50 dark:to-transparent">
+    <div
+      class="border-brand-100/50 from-brand-50 rounded-3xl border bg-gradient-to-br to-transparent p-8 dark:border-neutral-800 dark:from-neutral-900/50 dark:to-transparent"
+    >
       <div class="space-y-6">
         <div>
           <h2 class="text-2xl font-bold text-neutral-900 dark:text-neutral-100">
             Serving Colorado
           </h2>
           <p class="mt-2 text-neutral-600 dark:text-neutral-400">
-            From Littleton and Highlands Ranch in the south, to Denver metro, Castle Rock,
-            Centennial, and down to Colorado Springs. We're ready to
+            From the Boulder Area and Denver metro to Littleton, Highlands
+            Ranch, Castle Rock, Centennial, and Colorado Springs, we're ready to
             work on your landscape.
           </p>
         </div>
@@ -149,13 +166,13 @@ const whyUs = [
         <div class="flex gap-4">
           <a
             href="/#contact"
-            class="inline-flex items-center justify-center rounded-lg bg-brand-600 px-6 py-3 font-semibold text-white transition duration-300 hover:bg-brand-700 dark:bg-brand-700 dark:hover:bg-brand-600"
+            class="bg-brand-600 hover:bg-brand-700 dark:bg-brand-700 dark:hover:bg-brand-600 inline-flex items-center justify-center rounded-lg px-6 py-3 font-semibold text-white transition duration-300"
           >
             Start Your Project
           </a>
           <a
             href={`tel:${COMPANY.phoneHref.replace('tel:', '')}`}
-            class="inline-flex items-center justify-center rounded-lg border border-brand-600 px-6 py-3 font-semibold text-brand-600 transition duration-300 hover:bg-brand-50 dark:border-brand-400 dark:text-brand-400 dark:hover:bg-neutral-900"
+            class="border-brand-600 text-brand-600 hover:bg-brand-50 dark:border-brand-400 dark:text-brand-400 inline-flex items-center justify-center rounded-lg border px-6 py-3 font-semibold transition duration-300 dark:hover:bg-neutral-900"
           >
             Call Us
           </a>

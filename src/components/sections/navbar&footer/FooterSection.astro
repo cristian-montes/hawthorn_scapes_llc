@@ -8,10 +8,11 @@ const strings = enStrings;
 
 // Define the variables that will be used in this component
 const sectionThreeTitle: string = 'Service Area';
-const sectionThreeContent: string = 'Metro Denver, Littleton, Centennial, Highlands Ranch, Castle Rock, and Colorado Springs.';
+const sectionThreeContent: string =
+  'Boulder Area, Metro Denver, Littleton, Centennial, Highlands Ranch, Castle Rock, and Colorado Springs.';
 ---
 
-<footer class="w-full bg-brand-50 dark:bg-neutral-900">
+<footer class="bg-brand-50 w-full dark:bg-neutral-900">
   <div
     class="mx-auto w-full max-w-[85rem] px-4 py-10 sm:px-6 lg:px-16 lg:pt-20 2xl:max-w-(--breakpoint-2xl)"
   >
@@ -62,7 +63,9 @@ const sectionThreeContent: string = 'Metro Denver, Littleton, Centennial, Highla
         </p>
       </div>
 
-      <div class="flex flex-wrap items-center gap-4 text-sm text-neutral-600 dark:text-neutral-400">
+      <div
+        class="flex flex-wrap items-center gap-4 text-sm text-neutral-600 dark:text-neutral-400"
+      >
         <a
           href={`mailto:${COMPANY.email}`}
           class="rounded-lg ring-zinc-500 outline-hidden transition duration-300 hover:text-neutral-900 focus-visible:ring-3 dark:ring-zinc-200 dark:hover:text-neutral-200"
